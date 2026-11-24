@@ -4,6 +4,10 @@ updates:
     directory: /site
     schedule:
       interval: weekly
+  - package-ecosystem: docker
+    directory: /site
+    schedule:
+      interval: weekly
   - package-ecosystem: pip
     directory: /examples/livre-dor/api
     schedule:
