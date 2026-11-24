@@ -1,5 +1,11 @@
 ---
 import { drawings } from '../../drawings/generated';
+import { exemples } from '../../data/exemples';
+import ShinyText from '../reactbits/ShinyText';
+import HeroTitle from './HeroTitle';
+import HeroCta from './HeroCta';
+// The "En ligne" pill shows only once the guestbook has a real address.
+const live = exemples.find((e) => e.slug === 'livre-dor')?.enLigne;
 ---
 <section data-reveal="hero" class="iso sec s-hero">
   <div class="rays" aria-hidden="true"><i style="--x: 18%; --w: 140px; --d: 0s;"></i><i style="--x: 38%; --w: 220px; --d: -3s;"></i><i style="--x: 62%; --w: 120px; --d: -6s;"></i></div>
@@ -19,14 +25,14 @@ import { drawings } from '../../drawings/generated';
         <svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_OL} />
         <svg class="hcol" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_IL} />
         <div class="hero-text">
-          <p class="eyebrow shiny">Ton projet, porté au firmament</p>
-          <h1 aria-label="Mets ton API parmi les étoiles"><span class="bw" style="--i: 0;">Mets</span> <span class="bw" style="--i: 1;">ton</span> <span class="bw rot" style="--i: 2;">API</span> <span class="bw" style="--i: 3;">parmi</span> <span class="bw" style="--i: 4;">les</span> <span class="bw" style="--i: 5;">étoiles</span></h1>
+          <p class="eyebrow fx" style="--d: .1s;"><ShinyText client:visible text="Ton projet, porté au firmament" color="#8a6c24" shineColor="#e6cc85" speed={2.5} delay={4.5} angle={110} direction="right" easing="linear" /></p>
+          <h1 aria-label="Mets ton API parmi les étoiles"><HeroTitle client:visible /></h1>
           <p class="fx lead" style="--d: 1s;">Une image Docker, un formulaire dans l'intranet, et ton app répond en HTTPS sur sa propre adresse. Base, secrets et espace d'équipe compris : aucun sacrifice aux dieux de Kubernetes.</p>
           <div class="fx actions" style="--d: 1.25s;">
-            <span class="cta"><a href="https://intranet.sigl.epita.fr/cassiopee" class="btn-ivy star"><svg class="flip" width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg>Déployer depuis l'intranet<svg width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg></a></span>
+            <HeroCta client:visible href="https://intranet.sigl.epita.fr/cassiopee"><svg class="flip" width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg>Déployer depuis l'intranet<svg width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg></HeroCta>
             <a href="/preparer-son-app" class="btn-stone">Préparer son app en 5 min</a>
           </div>
-          <p class="fx online" style="--d: 1.6s;"><span class="online-tag"><span class="live"><svg width="9" height="9" aria-hidden="true"><circle cx="4.5" cy="4.5" r="4.5" fill="#4e8a3e" /></svg></span>En ligne</span><span class="type">https://livre-dor.cassiopee.siops.sigl.epita.fr</span></p>
+          {live && <p class="fx online" style="--d: 1.6s;"><span class="online-tag"><span class="live"><svg width="9" height="9" aria-hidden="true"><circle cx="4.5" cy="4.5" r="4.5" fill="#4e8a3e" /></svg></span>En ligne</span><span class="type" style={`--n: ${live.length};`}>{live}</span></p>}
         </div>
         <svg class="hcol" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_IR} />
         <svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_OR} />

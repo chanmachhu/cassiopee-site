@@ -1,4 +1,4 @@
-/* Home page, from the mockup (site/tools/template.html). Static only: motion comes with the animation task. */
+/* Home page, from the mockup (site/tools/template.html). Motion lives in motion.css. */
 summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 .iso { position: relative; isolation: isolate; }
 .z1 { position: relative; z-index: 1; }
@@ -28,8 +28,18 @@ summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; bor
 .hcol { flex: 0 0 96px; width: 96px; height: 564px; overflow: visible; }
 .hero-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding: 0 10px; }
 .hero-text h1 { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 52px; line-height: 1.1; letter-spacing: .02em; color: #232722; max-width: 12em; }
-.bw { display: inline-block; }
+.ht { justify-content: center; }
+/* The rotating word sits over its invisible siblings: the slot is as wide as the widest word. */
 .rot { display: inline-grid; color: var(--ivy-500); border-bottom: 3px solid #c9a75a; padding: 0 4px; overflow: hidden; vertical-align: bottom; }
+.rot > * { grid-area: 1 / 1; justify-self: center; }
+.rot-ghost { visibility: hidden; }
+/* The leaving and the coming word cross in the same cell. */
+.rot > .text-rotate { display: grid; }
+.rot > .text-rotate > .text-rotate { grid-area: 1 / 1; justify-self: center; }
+/* StarBorder's own styles would override the button's. */
+.btn-ivy.star-border { padding: 0 26px; gap: 10px; font-weight: 600; line-height: inherit; background: var(--ivy-500); }
+.btn-ivy.star-border:hover { background: #34502d; }
+.btn-ivy.star-border:focus-visible { outline-color: var(--gold); }
 .lead { margin: 0; max-width: 30em; font-size: 21px; color: var(--stone-700); }
 .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .cta, .live { position: relative; display: inline-flex; }

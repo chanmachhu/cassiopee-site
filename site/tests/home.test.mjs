@@ -21,3 +21,8 @@ test('main call to action opens the intranet Cassiopée page', () => {
 test('recipe buttons point to the examples page', () => {
   for (const s of ['livre-dor', 'stats', 'bot']) assert.match(html, new RegExp(`href="/exemples#${s}"`));
 });
+test('hero shows the "En ligne" pill only with the guestbook address', () => {
+  const live = exemples.find((e) => e.slug === 'livre-dor').enLigne;
+  assert.equal(html.includes('En ligne</span>'), Boolean(live));
+  if (live) assert.ok(html.includes(`>${live}</span>`));
+});

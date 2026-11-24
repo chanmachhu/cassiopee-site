@@ -19,4 +19,7 @@ code { font-family: var(--font-mono); font-size: 15px; background: var(--stone-1
 .btn-ivy:hover { background: #34502d; }
 .btn-stone { background: var(--marble-light); color: var(--ink) !important; border: 1px solid var(--stone-300); box-shadow: 0 2px 0 #d3ccc0; padding: 0 24px; }
 .btn-stone:hover { background: #fff; }
+.btn-ivy, .btn-stone { transition: translate .2s ease-out, background-color .2s ease-out; }
+.btn-ivy:hover, .btn-stone:hover { translate: 0 -1px; }
 @media (max-width: 600px) { :root { --gutter: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
