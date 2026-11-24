@@ -1,0 +1,152 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test
+
+  python:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      # api and stats share the same tables: run them serially against the one database.
+      - name: api
+        working-directory: examples/livre-dor/api
+        run: |
+          pip install -r requirements.txt -r requirements-dev.txt
+          pytest
+      - name: stats
+        working-directory: examples/livre-dor/stats
+        run: |
+          pip install -r requirements.txt -r requirements-dev.txt
+          pytest
+      - name: bot
+        working-directory: examples/livre-dor/bot
+        run: |
+          pip install -r requirements.txt -r requirements-dev.txt
+          pytest
+
+  front:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      # Pass the file, not the directory: `node --test tests/` fails on Node 22.
+      - run: node --test tests/app.test.mjs
+        working-directory: examples/livre-dor/front
+
+  images:
+    needs: [site, python, front]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: cassiopee-site
+            context: site
+            file: site/Dockerfile
+          - name: cassiopee-livre-dor-front
+            context: examples/livre-dor
+            file: examples/livre-dor/front/Dockerfile
+          - name: cassiopee-livre-dor-api
+            context: examples/livre-dor
+            file: examples/livre-dor/api/Dockerfile
+          - name: cassiopee-livre-dor-stats
+            context: examples/livre-dor
+            file: examples/livre-dor/stats/Dockerfile
+          - name: cassiopee-livre-dor-bot
+            context: examples/livre-dor
+            file: examples/livre-dor/bot/Dockerfile
+    env:
+      PUSH: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: tag
+        run: echo "sha7=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+      - if: env.PUSH == 'true'
+        uses: docker/login-action@8aa5831fb8d48d8f76594c7ddde61ae58019f550 # v4.8.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build site image for the smoke test
+        if: matrix.name == 'cassiopee-site'
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: cassiopee-site:ci
+      - name: Smoke test site image
+        if: matrix.name == 'cassiopee-site'
+        run: |
+          set -eu
+          docker run -d --name site -p 8080:8080 cassiopee-site:ci
+          for i in $(seq 1 30); do
+            curl -sf -o /dev/null http://localhost:8080/ && break
+            sleep 1
+          done
+          check() {
+            h=$(curl -sI "http://localhost:8080$1")
+            echo "$h"
+            echo "$h" | head -1 | grep -q " $2" || { echo "::error::$1 expected $2"; exit 1; }
+            for name in Content-Security-Policy X-Content-Type-Options; do
+              echo "$h" | grep -qi "^$name:" || { echo "::error::$1 lacks $name"; exit 1; }
+            done
+          }
+          check / 200
+          check /does-not-exist 404
+          uid=$(docker exec site id -u)
+          [ "$uid" != 0 ] || { echo "::error::container runs as root"; exit 1; }
+          docker rm -f site
+
+      - uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          platforms: linux/amd64
+          push: ${{ env.PUSH == 'true' }}
+          tags: ghcr.io/chanmachhu/${{ matrix.name }}:${{ steps.tag.outputs.sha7 }}
