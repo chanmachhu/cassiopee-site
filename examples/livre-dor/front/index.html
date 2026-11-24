@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livre d'or</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Livre d'or</h1>
+    <form id="form">
+      <label for="auteur">Ton nom <span id="auteur-n"></span></label>
+      <input id="auteur" maxlength="40" required>
+      <label for="texte">Ton message <span id="texte-n"></span></label>
+      <textarea id="texte" maxlength="280" rows="3" required></textarea>
+      <p id="erreur" role="alert"></p>
+      <button type="submit">Signer</button>
+    </form>
+    <h2>Derniers messages</h2>
+    <ul id="messages"></ul>
+    <h2>Messages des 30 derniers jours</h2>
+    <ul id="stats"></ul>
+  </main>
+</body>
+</html>
