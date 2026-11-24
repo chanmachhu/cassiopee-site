@@ -30,6 +30,12 @@ test('stats are rendered per day', () => {
   assert.match(c.textContent, /4/);
 });
 
+test('an empty stats list explains the hourly refresh', () => {
+  const c = el();
+  renderStats([], c);
+  assert.match(c.textContent, /calculées toutes les heures/);
+});
+
 test('the source never uses innerHTML', () => {
   assert.doesNotMatch(readFileSync(new URL('../app.js', import.meta.url), 'utf8'), /innerHTML|insertAdjacentHTML|outerHTML/);
 });

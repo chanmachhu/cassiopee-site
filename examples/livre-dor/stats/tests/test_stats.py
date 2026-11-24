@@ -26,6 +26,21 @@ def test_refresh_counts_per_day_and_is_idempotent():
             assert rows == [(d1.date(), 2), (d2.date(), 1)]
 
 
+@pytest.mark.skipif(not DSN, reason="TEST_DATABASE_URL not set")
+def test_refresh_drops_day_whose_messages_were_deleted():
+    now = datetime.now(timezone.utc).replace(hour=12)
+    d1, d2 = now - timedelta(days=2), now - timedelta(days=1)
+    with psycopg.connect(DSN) as conn:
+        conn.execute(SCHEMA.read_text())
+        conn.execute("TRUNCATE messages, stats")
+        for when in (d1, d2):
+            conn.execute("INSERT INTO messages (auteur, texte, cree_le) VALUES ('a', 't', %s)", (when,))
+        stats.refresh(conn)
+        conn.execute("DELETE FROM messages WHERE cree_le = %s", (d2,))
+        assert stats.refresh(conn) == 1
+        assert conn.execute("SELECT jour FROM stats").fetchall() == [(d1.date(),)]
+
+
 def test_main_failure_exits_1_without_leaking_dsn(monkeypatch, capsys):
     def boom(*a, **k):
         raise psycopg.OperationalError("connection refused")

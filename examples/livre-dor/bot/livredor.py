@@ -15,9 +15,12 @@ async def fetch_last(client: httpx.AsyncClient, api_url: str, n: int = 5) -> lis
     try:
         r = await client.get(f"{api_url}/api/messages", params={"limit": n})
         r.raise_for_status()
-        return r.json()
+        data = r.json()
     except (httpx.HTTPError, ValueError) as e:
         raise LivreDorIndisponible from e
+    if not isinstance(data, list):
+        raise LivreDorIndisponible(f"unexpected payload: {type(data).__name__}")
+    return data
 
 
 def _clean(s: str) -> str:
@@ -31,7 +34,7 @@ def format_messages(messages: list[dict]) -> str:
     out = "\n".join(lines)
     if len(out) <= LIMIT:
         return out
-    # Cut on a line boundary, then shorten the last kept line; never inside an escape pair.
+    # Hard cut (not on a line boundary); drop a trailing backslash so it cannot escape the ellipsis.
     out = out[: LIMIT - len(ELLIPSIS)]
     while out.endswith("\\"):
         out = out[:-1]

@@ -1,4 +1,6 @@
+import asyncio
 import os
+import signal
 import sys
 
 import discord
@@ -17,6 +19,8 @@ class Bot(discord.Client):
         self.http_client = httpx.AsyncClient(timeout=API_TIMEOUT)
 
     async def setup_hook(self):
+        # run() ignores SIGTERM and we are PID 1: close cleanly instead of waiting for SIGKILL.
+        self.loop.add_signal_handler(signal.SIGTERM, lambda: asyncio.create_task(self.close()))
         await self.tree.sync()  # global registration; can take a few minutes to show up
 
     async def close(self):

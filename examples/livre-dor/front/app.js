@@ -27,6 +27,7 @@ export function renderMessages(list, container) {
 
 export function renderStats(list, container) {
   container.replaceChildren();
+  if (!list.length) add(container, 'li', 'stat', 'Les statistiques sont calculées toutes les heures.');
   for (const s of list) add(container, 'li', 'stat', `${s.jour} : ${s.messages}`);
 }
 

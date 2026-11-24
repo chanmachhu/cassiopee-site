@@ -10,6 +10,8 @@ SCHEMA = Path(__file__).parents[1] / "schema.sql"
 
 def refresh(conn) -> int:
     """Recompute messages per UTC day for the last 30 days; returns days written."""
+    # Same transaction: a day whose messages were all deleted must not keep a stale row.
+    conn.execute("DELETE FROM stats WHERE jour >= (now() AT TIME ZONE 'UTC')::date - 29")
     return conn.execute(
         """
         INSERT INTO stats (jour, messages)
@@ -17,7 +19,6 @@ def refresh(conn) -> int:
         FROM messages
         WHERE cree_le >= date_trunc('day', now() AT TIME ZONE 'UTC') - interval '29 days'
         GROUP BY jour
-        ON CONFLICT (jour) DO UPDATE SET messages = EXCLUDED.messages
         """
     ).rowcount
 
