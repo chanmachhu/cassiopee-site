@@ -8,7 +8,7 @@
 
 **Tech Stack:** Astro 7 (Node ≥ 22.23), React 19 via `@astrojs/react`, `motion` (requis par BlurText et RotatingText), Fontsource ; Python 3.12, FastAPI, psycopg 3, discord.py, httpx, pytest ; nginx-unprivileged ; GitHub Actions, GHCR.
 
-**Spec:** `doc/2026-11-23-site-presentation-design.md` (même dépôt Cassiopée, branche `docs/site-presentation`).
+**Spec:** `docs/design.md`. Maquette : `docs/maquette/Mythologie.dc.html`. Dépôt Cassiopée (lecture seule) : `/home/hugo/epita/SIGL/SIOPS/cassiopee/.claude/worktrees/team-spaces`, à lire avec `git show origin/main:<fichier>`.
 
 ## Global Constraints
 
@@ -34,7 +34,7 @@
 
 ---
 
-### Task 0 (contrôleur) : environnement
+### Task 0 (contrôleur) : environnement — fait
 
 - [ ] **Step 1:** Installer Node 22 avec nvm (`nvm install 22 && nvm use 22`) ; vérifier `node --version` ≥ `v22.23.4` (Astro 7 l'exige ; seule la 20 est installée).
 - [ ] **Step 2:** Créer le dépôt : `gh repo create chanmachhu/cassiopee-site --public --add-readme --description "Site de présentation et exemples de Cassiopée"`, le cloner dans `/home/hugo/epita/SIGL/SIOPS/cassiopee-site`, créer la branche `feat/site`.
@@ -50,7 +50,7 @@
 
 - [ ] **Step 1: README** — sections : à quoi sert le dépôt ; arborescence ; développement local (`nvm use 22`, `cd site && npm ci && npm run dev`, `pytest` dans chaque exemple) ; publication des images (CI sur `main`, tag = SHA court) ; **première publication : passer chaque paquet GHCR en public** (GitHub → Packages → Package settings → Change visibility) ; déploiement (renvoi vers `recettes/README.md`) ; **nettoyage annuel : le site et les exemples ne doivent pas être supprimés** ; passation (transfert du dépôt, redéploiement dans le nouvel espace).
 - [ ] **Step 2: Dependabot** — écosystèmes `npm` (`/site`), `pip` (`/examples/livre-dor/api`, `/examples/livre-dor/stats`, `/examples/livre-dor/bot`), `docker` (chaque dossier avec un Dockerfile), `github-actions` (`/`) ; fréquence hebdomadaire.
-- [ ] **Step 3: Guide** — partir de `doc/preparer-son-app.md` (branche `docs/app-prerequisites` du dépôt Cassiopée) et le mettre à jour avec ce qui est en prod 0.8.1 :
+- [ ] **Step 3: Guide** — partir de `docs/maquette/preparer-son-app.source.md` (copie du guide de la branche `docs/app-prerequisites` du dépôt Cassiopée) et le mettre à jour avec ce qui est en prod 0.8.1 :
   - section 4 : trois sortes de variables — **Valeur** (écrite dans Git, rien de sensible), **Secret** (saisi une fois, rangé dans Vault, jamais réaffiché ; une valeur vide le conserve), **Base** (référence vers une information de connexion d'une base de l'espace : chaîne de connexion, hôte, port, utilisateur, mot de passe, nom de la base) ; supprimer l'avertissement « stockées en clair, pas de secret » ;
   - section 5 : brancher la base par une référence plutôt que recopier ses identifiants ;
   - section 7 (S3) : remplacer par une phrase « Le stockage S3 est indisponible pour l'instant » ;
