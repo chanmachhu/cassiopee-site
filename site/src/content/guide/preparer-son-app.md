@@ -5,7 +5,7 @@ description: Les règles à respecter pour qu'une image de conteneur tourne sur 
 
 ## À quoi sert Cassiopée
 
-Cassiopée héberge les **projets des élèves** du SIGL : une application web, son API, sa base de données et son stockage, déployés depuis l'intranet sans toucher à Kubernetes. C'est une plateforme d'école : pas de garantie de disponibilité, pas de sauvegarde automatique, des ressources limitées.
+Cassiopée héberge les **projets des élèves** du SIGL : une application web, son API et sa base de données, déployés depuis l'intranet sans toucher à Kubernetes. C'est une plateforme d'école : pas de garantie de disponibilité, pas de sauvegarde automatique, des ressources limitées.
 
 **Toutes les apps sont supprimées chaque année.** Cassiopée est fait pour des projets **éphémères** (projet de cours, hackathon, démo de fin de module), qui ne servent plus à la fin de l'année. Il n'est pas fait pour un PAE ou un service qui doit continuer à tourner d'une année sur l'autre.
 
@@ -29,7 +29,7 @@ Cassiopée héberge les **projets des élèves** du SIGL : une application web, 
 
 ## Ce qui change par rapport à ton poste
 
-Sur Cassiopée, chaque morceau est séparé et isolé : l'application, la base et le stockage sont des ressources distinctes, reliées par des variables d'environnement. Une image qui marche en local peut donc échouer sur Cassiopée si elle ne respecte pas les règles ci-dessous.
+Sur Cassiopée, chaque morceau est séparé et isolé : l'application et la base sont des ressources distinctes, reliées par des variables d'environnement. Une image qui marche en local peut donc échouer sur Cassiopée si elle ne respecte pas les règles ci-dessous.
 
 ## Checklist
 
@@ -86,8 +86,10 @@ Cassiopée lance tous les conteneurs en **UID 1000**, sans privilèges, quel que
 Pour tester en local exactement comme sur Cassiopée :
 
 ```bash
-docker run --rm --user 1000:1000 -p 8080:8080 -e PORT=8080 ghcr.io/moi/mon-app:1.4.2
+docker run --rm --user 1000:0 -p 8080:8080 -e PORT=8080 ghcr.io/moi/mon-app:1.4.2
 ```
+
+Cassiopée lance le conteneur avec l'UID 1000 et le GID 0, et seuls `/tmp`, `/var/cache/nginx` et `/var/run` sont accessibles en écriture.
 
 ## 4. La configuration par variables d'environnement
 
