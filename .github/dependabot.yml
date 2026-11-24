@@ -1,0 +1,38 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /site
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /examples/livre-dor/api
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /examples/livre-dor/stats
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /examples/livre-dor/bot
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /examples/livre-dor/front
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /examples/livre-dor/api
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /examples/livre-dor/stats
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: /examples/livre-dor/bot
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
