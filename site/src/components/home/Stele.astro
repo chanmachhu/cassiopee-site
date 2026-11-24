@@ -1,0 +1,14 @@
+---
+import { drawings } from '../../drawings/generated';
+interface Props { n: 1 | 2 | 3; titre: string }
+const { n, titre } = Astro.props;
+---
+<li class:list={['stele lift rv', n > 1 && `r${n}`]}>
+  <svg class="crown" width="60" height="46" viewBox="0 0 60 46" aria-hidden="true" set:html={drawings.CROWN} />
+  <div class="stele-body">
+    <svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".45" /></svg>
+    <span class="ring">{n}</span>
+    <h3>{titre}</h3>
+    <p><slot /></p>
+  </div>
+</li>

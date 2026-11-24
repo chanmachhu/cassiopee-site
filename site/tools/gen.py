@@ -700,13 +700,13 @@ if TS_MODE:
         f"export type DrawingName = {' | '.join(json.dumps(k) for k in names)};\n"
         f"export const drawings: Record<DrawingName, string> = {{\n{body},\n}};\n"
     )
-    with open(OUT, "w") as fh:
+    with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(out)
     print(f"wrote {OUT}: {len(out) // 1024} KiB")
     sys.exit()
 
-with open(sys.argv[2]) as fh:
+with open(sys.argv[2], encoding="utf-8") as fh:
     page = Template(fh.read()).safe_substitute(DRAW)
-with open(OUT, "w") as fh:
+with open(OUT, "w", encoding="utf-8") as fh:
     fh.write(page)
 print(f"wrote {OUT}: {len(page) // 1024} KiB")

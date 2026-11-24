@@ -1,0 +1,129 @@
+/* Home page, from the mockup (site/tools/template.html). Static only: motion comes with the animation task. */
+summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+.iso { position: relative; isolation: isolate; }
+.z1 { position: relative; z-index: 1; }
+.z2 { position: relative; z-index: 2; }
+.ivy-back, .ivy-front { position: absolute; pointer-events: none; overflow: visible; }
+.ivy-back { z-index: 0; }
+.ivy-front { z-index: 5; }
+.engraved { color: var(--stone-500); text-shadow: 0 1px 0 rgba(255,255,255,.9), 0 -1px 0 rgba(0,0,0,.1); }
+.eyebrow { margin: 0; font-family: var(--font-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-dark); }
+.blk { display: block; width: 100%; }
+.sec h2 { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 40px; letter-spacing: .03em; }
+.sec h3 { margin: 0; font-family: var(--font-heading); font-weight: 600; font-size: 21px; }
+
+/* Hero */
+.s-hero { padding: 36px 0 56px; }
+.rays { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.rays i { position: absolute; top: -25%; left: var(--x); width: var(--w); height: 150%; background: linear-gradient(90deg, rgba(255,246,220,0), rgba(255,248,230,.75) 50%, rgba(255,246,220,0)); transform: rotate(22deg); transform-origin: 50% 0; }
+.dust { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.dust i { position: absolute; left: var(--x); top: var(--y); width: var(--s); height: var(--s); border-radius: 50%; background: #e2c77e; box-shadow: 0 0 6px 2px rgba(214,184,110,.5); opacity: 0; }
+.hero-ivy { left: 0; top: 0; width: 1116px; height: 700px; }
+.pediment { height: auto; overflow: visible; }
+.frieze { height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(var(--marble-light), #ece8e0); border-left: 1px solid #cfc8bb; border-right: 1px solid #cfc8bb; }
+.frieze p { margin: 0; font-family: var(--font-heading); font-weight: 600; font-size: 15px; letter-spacing: .32em; }
+.ros { position: absolute; left: 18px; }
+.ros.r { left: auto; right: 18px; }
+.colonnade { display: flex; align-items: stretch; gap: 20px; height: 564px; padding: 0 4px; }
+.hcol { flex: 0 0 96px; width: 96px; height: 564px; overflow: visible; }
+.hero-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; padding: 0 10px; }
+.hero-text h1 { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 52px; line-height: 1.1; letter-spacing: .02em; color: #232722; max-width: 12em; }
+.bw { display: inline-block; }
+.rot { display: inline-grid; color: var(--ivy-500); border-bottom: 3px solid #c9a75a; padding: 0 4px; overflow: hidden; vertical-align: bottom; }
+.lead { margin: 0; max-width: 30em; font-size: 21px; color: var(--stone-700); }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+.cta, .live { position: relative; display: inline-flex; }
+.flip { transform: scaleX(-1); }
+.online { margin: 4px 0 0; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; padding: 8px 16px; border: 1px solid #d3ccc0; border-radius: 4px; background: rgba(255,255,255,.75); font-size: 16px; }
+.online-tag { display: inline-flex; align-items: center; gap: 6px; color: var(--ivy-500); }
+.online .type { font-family: var(--font-mono); font-size: 14px; overflow-wrap: anywhere; }
+.steps-hero { width: calc(100% + 48px); margin: 0 -24px; height: 46px; }
+
+/* Plaque */
+.s-plaque { padding-top: 72px; padding-bottom: 24px; }
+.plaque-ivy { left: -40px; top: -46px; }
+.plaque { height: 150px; display: flex; background: linear-gradient(160deg, var(--marble-light), #efebe4); border: 1px solid #c3bbad; border-radius: 4px; box-shadow: 0 2px 0 #d9d2c6, 0 14px 22px -16px rgba(60,55,45,.45), inset 0 0 0 7px #f7f5f0, inset 0 0 0 8px rgba(168,132,47,.45); }
+.plaque > div { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 30px 18px 0; text-align: center; }
+.plaque > div + div { border-left: 1px solid #ddd6ca; }
+.num { margin: 0; font-family: var(--font-heading); font-weight: 700; font-size: 54px; line-height: 1; }
+.num + p { margin: 8px 0 0; font-size: 17px; }
+
+/* Piliers */
+.s-piliers { padding-top: 64px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 40px; }
+.sec-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.sec-head p { margin: 0; max-width: 34em; color: var(--stone-700); }
+.card-row { display: flex; flex-wrap: wrap; gap: 40px; }
+.tcard { flex: 1 1 300px; min-width: 0; position: relative; isolation: isolate; display: flex; flex-direction: column; }
+.wide { display: block; width: calc(100% + 16px); margin: 0 -8px; }
+.roof { height: 92px; overflow: visible; }
+.arch { height: 16px; }
+.steps { height: 30px; }
+.ticon { position: absolute; left: 50%; top: 41px; transform: translateX(-50%); }
+.tbody { height: 340px; display: flex; position: relative; z-index: 2; }
+.wall { position: absolute; left: 24px; right: 24px; top: 0; bottom: 0; background: linear-gradient(#fff, #faf9f6); box-shadow: inset 0 14px 14px -14px rgba(60,55,45,.45), inset 0 -10px 12px -12px rgba(60,55,45,.3); overflow: hidden; }
+.wall .tex { z-index: 0; }
+.tcol { flex: 0 0 48px; width: 48px; height: 340px; overflow: visible; position: relative; z-index: 1; }
+.ttext { flex: 1 1 auto; min-width: 0; position: relative; z-index: 1; padding: 30px 14px 20px; display: flex; flex-direction: column; gap: 10px; }
+.ttext h3 { line-height: 1.25; }
+/* As in the mockup, .ttext p wins over .label's colour. */
+.ttext p { margin: 0; color: var(--stone-700); }
+.label { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ivy-500); }
+.card-ivy { right: -8px; top: 0; }
+
+/* Rituel */
+.s-rituel > .wrap { padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 30px; }
+.s-rituel h2 { text-align: center; }
+.steles { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 26px; }
+.stele { position: relative; flex: 1 1 280px; min-width: 0; padding-top: 34px; }
+.stele-body { position: relative; isolation: isolate; overflow: hidden; height: 100%; box-sizing: border-box; background: linear-gradient(#fff, #f7f5f0); border: 1px solid #c9c1b4; border-radius: 130px 130px 6px 6px; padding: 40px 26px 28px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; box-shadow: inset 0 0 0 6px var(--marble-light), inset 0 0 0 7px rgba(168,132,47,.35), 0 3px 0 #ddd6ca; }
+.stele-body p { margin: 0; color: var(--stone-700); }
+.crown { position: absolute; z-index: 2; top: 0; left: 50%; transform: translateX(-50%); overflow: visible; }
+.ring { display: inline-flex; width: 54px; height: 54px; align-items: center; justify-content: center; border-radius: 50%; border: 1.5px solid var(--gold); box-shadow: inset 0 0 0 3px #fff, inset 0 0 0 4px rgba(168,132,47,.4); color: var(--gold-dark); font-family: var(--font-heading); font-weight: 700; font-size: 24px; }
+
+/* Exemples */
+.s-exemples { padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 30px; }
+.ex-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; }
+.ex-head > div { display: flex; flex-direction: column; gap: 8px; }
+.ex-head p { margin: 0; max-width: 36em; color: var(--stone-700); }
+.ex-row { display: flex; flex-wrap: wrap; gap: 22px; }
+.ex { overflow: hidden; flex: 1 1 300px; min-width: 0; background: #fff; border: 1px solid #cfc8bb; border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 3px 0 #e2dcd1; }
+.ex p { margin: 0; color: var(--stone-700); }
+.ex .tags { font-family: var(--font-mono); font-size: 12.5px; color: var(--ivy-500); }
+.ex h3 { font-size: 22px; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.btns a { min-height: 44px; padding: 0 16px; font-size: 16px; }
+
+/* Accueil and oracle */
+.s-oracle > .wrap { padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 44px; }
+.s-oracle h2 { font-size: 34px; }
+.accueil { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.box { background: #fff; border: 1px solid #cfc8bb; border-left: 4px solid #4e6e43; border-radius: 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.box p { margin: 0; }
+.box p:first-child { font-family: var(--font-heading); font-weight: 600; color: var(--ivy-500); }
+.box.no { background: #f7f5f0; border-left-color: #8e877a; }
+.box.no p:first-child { color: #5e584e; }
+.faq { flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.faq h2 { margin-bottom: 4px; }
+.faq details { background: #fff; border: 1px solid #cfc8bb; border-radius: 4px; padding: 14px 18px; }
+.faq summary { cursor: pointer; font-family: var(--font-heading); font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq details p { margin: 10px 0 0; color: var(--stone-700); }
+.chev { display: inline-block; color: var(--gold); }
+details[open] summary .chev { transform: rotate(90deg); }
+
+/* Fin */
+.s-fin > .wrap { padding-top: 56px; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+.s-fin h2 { font-size: 36px; letter-spacing: .04em; }
+.s-fin p { margin: 12px 0 0; font-size: 16px; color: var(--stone-500); }
+
+@media (max-width: 1179px) { .drape, .plaque-ivy { display: none; } }
+@media (max-width: 900px) { .hcol.outer { display: none; } }
+@media (max-width: 640px) {
+  .hcol { display: none; }
+  .colonnade { height: auto; padding: 40px 0; }
+  /* The frieze text wraps here: let the band grow, clear of the rosettes. */
+  .frieze { height: auto; padding: 6px 40px; text-align: center; }
+  .plaque { height: auto; flex-wrap: wrap; }
+  .plaque > div { flex-basis: 50%; padding: 18px; }
+  .plaque > div + div { border-left: 0; }
+}

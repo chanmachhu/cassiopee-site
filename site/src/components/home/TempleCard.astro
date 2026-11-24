@@ -1,0 +1,29 @@
+---
+import { drawings, type DrawingName } from '../../drawings/generated';
+// n picks the card's drawings (ROOF<n>, CARD<n>_L/_R, STEPS_CARD<n>, optional CARD<n>_BACK/_FRONT ivy) and its reveal delay.
+interface Props { n: 1 | 2 | 3; label: string; titre: string }
+const { n, label, titre } = Astro.props;
+const d = (k: string) => drawings[k as DrawingName];
+const back = d(`CARD${n}_BACK`);
+const front = d(`CARD${n}_FRONT`);
+---
+<article class:list={['tcard lift rv', n > 1 && `r${n}`]}>
+  {back && <svg class="ivy-back drape card-ivy" width="150" height="420" viewBox="0 0 150 420" aria-hidden="true" set:html={back} />}
+  <div class="z1">
+    <svg class="wide roof" viewBox="0 -22 370 92" preserveAspectRatio="none" aria-hidden="true" set:html={d(`ROOF${n}`)} />
+    <slot name="icon" />
+  </div>
+  <svg class="z1 wide arch" viewBox="0 0 370 16" preserveAspectRatio="none" aria-hidden="true" set:html={drawings.ARCH_CARD} />
+  <div class="tbody">
+    <div class="wall"><svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".4" /></svg></div>
+    <svg class="tcol" viewBox="0 0 60 425" aria-hidden="true" set:html={d(`CARD${n}_L`)} />
+    <div class="ttext">
+      <p class="label">{label}</p>
+      <h3>{titre}</h3>
+      <p><slot /></p>
+    </div>
+    <svg class="tcol" viewBox="0 0 60 425" aria-hidden="true" set:html={d(`CARD${n}_R`)} />
+  </div>
+  <svg class="z1 wide steps" viewBox="0 0 370 30" preserveAspectRatio="none" aria-hidden="true" set:html={d(`STEPS_CARD${n}`)} />
+  {front && <svg class="ivy-front drape card-ivy" width="150" height="420" viewBox="0 0 150 420" aria-hidden="true" set:html={front} />}
+</article>

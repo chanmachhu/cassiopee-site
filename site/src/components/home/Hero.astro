@@ -1,0 +1,38 @@
+---
+import { drawings } from '../../drawings/generated';
+---
+<section data-reveal="hero" class="iso sec s-hero">
+  <div class="rays" aria-hidden="true"><i style="--x: 18%; --w: 140px; --d: 0s;"></i><i style="--x: 38%; --w: 220px; --d: -3s;"></i><i style="--x: 62%; --w: 120px; --d: -6s;"></i></div>
+  <div class="dust" aria-hidden="true" set:html={drawings.DUST} />
+  <div class="wrap">
+    <div class="iso">
+      <svg class="ivy-back drape hero-ivy" viewBox="0 0 1116 700" aria-hidden="true" set:html={drawings.HERO_BACK} />
+      <svg class="z1 blk pediment" viewBox="0 -48 1116 262" role="img" aria-label="Fronton de temple en marbre, couronne de laurier sculptée et palmettes dorées" set:html={drawings.PEDIMENT} />
+      <div class="frieze z1 iso">
+        <svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fGrain)" opacity=".5" /></svg>
+        <svg class="ros" width="16" height="16" viewBox="-6 -6 12 12" aria-hidden="true"><use href="#rosette" /></svg>
+        <p class="engraved">CASSIOPÉE · PLATEFORME DE DÉPLOIEMENT DU SIGL</p>
+        <svg class="ros r" width="16" height="16" viewBox="-6 -6 12 12" aria-hidden="true"><use href="#rosette" /></svg>
+      </div>
+      <svg class="z1 blk" height="22" viewBox="0 0 1116 22" preserveAspectRatio="none" aria-hidden="true" set:html={drawings.ARCH_HERO} />
+      <div class="colonnade z1">
+        <svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_OL} />
+        <svg class="hcol" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_IL} />
+        <div class="hero-text">
+          <p class="eyebrow shiny">Ton projet, porté au firmament</p>
+          <h1 aria-label="Mets ton API parmi les étoiles"><span class="bw" style="--i: 0;">Mets</span> <span class="bw" style="--i: 1;">ton</span> <span class="bw rot" style="--i: 2;">API</span> <span class="bw" style="--i: 3;">parmi</span> <span class="bw" style="--i: 4;">les</span> <span class="bw" style="--i: 5;">étoiles</span></h1>
+          <p class="fx lead" style="--d: 1s;">Une image Docker, un formulaire dans l'intranet, et ton app répond en HTTPS sur sa propre adresse. Base, secrets et espace d'équipe compris : aucun sacrifice aux dieux de Kubernetes.</p>
+          <div class="fx actions" style="--d: 1.25s;">
+            <span class="cta"><a href="https://intranet.sigl.epita.fr" class="btn-ivy star"><svg class="flip" width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg>Déployer depuis l'intranet<svg width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig" /></svg></a></span>
+            <a href="/preparer-son-app" class="btn-stone">Préparer son app en 5 min</a>
+          </div>
+          <p class="fx online" style="--d: 1.6s;"><span class="online-tag"><span class="live"><svg width="9" height="9" aria-hidden="true"><circle cx="4.5" cy="4.5" r="4.5" fill="#4e8a3e" /></svg></span>En ligne</span><span class="type">https://livre-dor.cassiopee.siops.sigl.epita.fr</span></p>
+        </div>
+        <svg class="hcol" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_IR} />
+        <svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true" set:html={drawings.COL_OR} />
+      </div>
+      <svg class="z1 blk steps-hero" viewBox="0 0 1164 46" preserveAspectRatio="none" aria-hidden="true" set:html={drawings.STEPS_HERO} />
+      <svg class="ivy-front drape hero-ivy" viewBox="0 0 1116 700" aria-hidden="true" set:html={drawings.HERO_FRONT} />
+    </div>
+  </div>
+</section>

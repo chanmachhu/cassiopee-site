@@ -1,0 +1,15 @@
+---
+import Accueil from './Accueil.astro';
+---
+<section id="oracle" data-reveal="oracle" class="iso sec s-oracle">
+  <div class="wrap">
+    <Accueil />
+    <div class="faq">
+      <h2>Consulte l'oracle</h2>
+      <details open><summary><span class="chev" aria-hidden="true">›</span>Mon site répond 502</summary><p>L'app écoute sur <code>localhost</code> ou sur un autre port : elle doit écouter sur <code>0.0.0.0</code>, sur le port déclaré.</p></details>
+      <details><summary><span class="chev" aria-hidden="true">›</span>ImagePullBackOff</summary><p>L'image est privée, son tag n'existe pas, ou elle n'est construite que pour ARM (Mac M1, M2, M3) : publie-la en public, avec un tag, pour <code>linux/amd64</code>.</p></details>
+      <details><summary><span class="chev" aria-hidden="true">›</span>Où mettre mes mots de passe ?</summary><p>Dans une variable de sorte Secret : saisie une fois, rangée dans Vault, jamais réaffichée. Pour une base de ton espace, une variable de sorte Base la branche sans recopier ses identifiants.</p></details>
+      <details><summary><span class="chev" aria-hidden="true">›</span>Mon app sera-t-elle supprimée ?</summary><p>Oui, chaque année : Cassiopée est fait pour des projets éphémères (cours, hackathon, démo), pas pour un PAE ou un service qui doit durer.</p></details>
+    </div>
+  </div>
+</section>
