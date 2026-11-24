@@ -14,6 +14,10 @@ test('home keeps the mockup copy', () => {
 test('no "Voir en ligne" without an address', () => {
   assert.equal(count(html, 'Voir en ligne'), exemples.filter((e) => e.enLigne).length);
 });
+test('main call to action opens the intranet Cassiopée page', () => {
+  const ctas = [...html.matchAll(/<a\b[^>]*href="([^"]*)"[^>]*>(?:(?!<\/a>).)*Déployer depuis l'intranet/gs)].map((m) => m[1]);
+  assert.deepEqual(ctas, ['https://intranet.sigl.epita.fr/cassiopee', 'https://intranet.sigl.epita.fr/cassiopee']);
+});
 test('recipe buttons point to the examples page', () => {
   for (const s of ['livre-dor', 'stats', 'bot']) assert.match(html, new RegExp(`href="/exemples#${s}"`));
 });
