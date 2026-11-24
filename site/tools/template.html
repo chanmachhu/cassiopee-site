@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Cassiopée · accueil (mythologie)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Cinzel+Decorative:wght@700&amp;family=Marcellus&amp;family=Cormorant+SC:wght@600;700&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+.page{position:relative;isolation:isolate;background:#F5F3EE;color:#2B2F2A;font-family:'EB Garamond',Georgia,serif;font-size:19px;line-height:1.6;overflow-x:clip}
+.page a{color:#3F5E37}.page a:hover{color:#2B4426}
+.page a:focus-visible,.page summary:focus-visible{outline:2px solid #A8842F;outline-offset:3px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.iso{position:relative;isolation:isolate}
+.tex{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.z1{position:relative;z-index:1}
+.z2{position:relative;z-index:2}
+.ivy-back,.ivy-front{position:absolute;pointer-events:none;overflow:visible}
+.ivy-back{z-index:0}.ivy-front{z-index:5}
+.engraved{color:#6B655A;text-shadow:0 1px 0 rgba(255,255,255,.9),0 -1px 0 rgba(0,0,0,.1)}
+.eyebrow{margin:0;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8A6C24}
+.btn-ivy{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:4px;background:#3F5E37;color:#FBFAF6!important;font-weight:600;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(214,184,110,.9),inset 0 0 0 4px #3F5E37,inset 0 0 0 5px rgba(214,184,110,.45)}
+.btn-ivy:hover{background:#34502D}
+.btn-stone{display:inline-flex;align-items:center;min-height:52px;padding:0 24px;border-radius:4px;background:#FBFAF7;color:#2B2F2A!important;text-decoration:none;border:1px solid #BDB5A7;box-shadow:0 2px 0 #D3CCC0}
+.btn-stone:hover{background:#fff}
+.colonnade{display:flex;align-items:stretch;gap:20px;height:564px;padding:0 4px}
+.hcol{flex:0 0 96px;width:96px;height:564px;overflow:visible}
+.hero-text{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:22px;padding:0 10px}
+.frieze{height:40px;display:flex;align-items:center;justify-content:center;background:linear-gradient(#FBFAF7,#ECE8E0);border-left:1px solid #CFC8BB;border-right:1px solid #CFC8BB}
+.plaque{height:150px;display:flex;background:linear-gradient(160deg,#FBFAF7,#EFEBE4);border:1px solid #C3BBAD;border-radius:4px;box-shadow:0 2px 0 #D9D2C6,0 14px 22px -16px rgba(60,55,45,.45),inset 0 0 0 7px #F7F5F0,inset 0 0 0 8px rgba(168,132,47,.45)}
+.plaque>div{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:30px 18px 0;text-align:center}
+.plaque>div+div{border-left:1px solid #DDD6CA}
+.num{margin:0;font-weight:700;font-size:54px;line-height:1}
+.card-row{display:flex;flex-wrap:wrap;gap:40px}
+.tcard{flex:1 1 300px;min-width:0;position:relative;isolation:isolate;display:flex;flex-direction:column}
+.tbody{height:340px;display:flex;position:relative;z-index:2}
+.wall{position:absolute;left:24px;right:24px;top:0;bottom:0;background:linear-gradient(#FFFFFF,#FAF9F6);box-shadow:inset 0 14px 14px -14px rgba(60,55,45,.45),inset 0 -10px 12px -12px rgba(60,55,45,.3);overflow:hidden}
+.tcol{flex:0 0 48px;width:48px;height:340px;overflow:visible;position:relative;z-index:1}
+.ttext{flex:1 1 auto;min-width:0;position:relative;z-index:1;padding:30px 14px 20px;display:flex;flex-direction:column;gap:10px}
+.ttext h3{margin:0;font-weight:600;font-size:21px;line-height:1.25}
+.ttext p{margin:0;color:#4A4F47}
+.label{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#3F5E37}
+.stele{position:relative;flex:1 1 280px;min-width:0;padding-top:34px}
+.stele-body{position:relative;isolation:isolate;overflow:hidden;height:100%;box-sizing:border-box;background:linear-gradient(#FFFFFF,#F7F5F0);border:1px solid #C9C1B4;border-radius:130px 130px 6px 6px;padding:40px 26px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;box-shadow:inset 0 0 0 6px #FBFAF7,inset 0 0 0 7px rgba(168,132,47,.35),0 3px 0 #DDD6CA}
+.crown{position:absolute;z-index:2;top:0;left:50%;transform:translateX(-50%);overflow:visible}
+.ring{display:inline-flex;width:54px;height:54px;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid #A8842F;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 4px rgba(168,132,47,.4);color:#8A6C24;font-weight:700;font-size:24px}
+details[open] summary .chev{transform:rotate(90deg)}
+code{font-family:'JetBrains Mono',monospace;font-size:15px;background:#F1EEE8;padding:1px 5px;border-radius:3px}
+/* motion: transform and opacity first, every effect off under prefers-reduced-motion */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes fadein{from{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.st{stroke-dasharray:1 2;animation:draw var(--t) cubic-bezier(.45,.1,.3,1) var(--d) both}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.lf{animation:unfurl .7s cubic-bezier(.2,.9,.3,1.25) var(--d) both}
+@keyframes unfurl{from{opacity:0;transform:scale(0) rotate(-30deg)}to{opacity:1;transform:none}}
+.fd{animation:fadein .6s ease-out var(--d) both}
+.sway{animation:sway var(--sw) ease-in-out 3.4s infinite}
+@keyframes sway{0%,100%{transform:rotate(0)}25%{transform:rotate(1.6deg)}75%{transform:rotate(-1.6deg)}}
+.rays{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;animation:fadein 2.2s ease-out .1s both}
+.rays i{position:absolute;top:-25%;left:var(--x);width:var(--w);height:150%;background:linear-gradient(90deg,rgba(255,246,220,0),rgba(255,248,230,.75) 50%,rgba(255,246,220,0));transform:rotate(22deg);transform-origin:50% 0;animation:ray 10s ease-in-out var(--d) infinite alternate}
+@keyframes ray{from{opacity:.2;transform:rotate(22deg) translateX(-14px)}to{opacity:.6;transform:rotate(22deg) translateX(14px)}}
+.dust{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.dust i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;background:#E2C77E;box-shadow:0 0 6px 2px rgba(214,184,110,.5);opacity:0;animation:mote var(--dur) linear var(--d) infinite}
+@keyframes mote{0%{opacity:0;transform:translate(0,0)}15%{opacity:.9}80%{opacity:.5}100%{opacity:0;transform:translate(var(--dx),-170px)}}
+.fx{animation:rise .8s cubic-bezier(.2,.7,.2,1) var(--d) both}
+.bw{display:inline-block;animation:blurin .9s cubic-bezier(.2,.7,.2,1) calc(.3s + var(--i) * .1s) both}
+@keyframes blurin{from{opacity:0;filter:blur(10px);transform:translateY(20px)}}
+.rot{display:inline-grid;color:#3F5E37;border-bottom:3px solid #C9A75A;padding:0 4px;overflow:hidden;vertical-align:bottom}
+.rw{grid-area:1/1;text-align:center;opacity:0;transform:translateY(80%);transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .45s ease-out}
+.rw.on{opacity:1;transform:none}
+.rw.prev{transform:translateY(-80%)}
+.shiny{background:linear-gradient(110deg,#8A6C24 42%,#EBD290 50%,#8A6C24 58%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:rise .8s cubic-bezier(.2,.7,.2,1) .1s both,shine 7s linear 1.6s infinite}
+@keyframes shine{0%{background-position:100% 0}35%,100%{background-position:0 0}}
+.cta{position:relative;display:inline-flex}
+.star{position:relative}
+.star::after{content:"";position:absolute;inset:-2px;border-radius:6px;padding:2px;background:conic-gradient(from var(--ang),transparent 0 70%,rgba(243,223,162,.15) 76%,#F3DFA2 86%,#FFFFFF 88%,transparent 93%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:orbit 5s linear 2s infinite;pointer-events:none}
+@keyframes orbit{to{--ang:360deg}}
+.sparks{position:absolute;width:0;height:0;pointer-events:none;z-index:6}
+.sparks i{position:absolute;left:-1px;top:-6px;width:2px;height:12px;border-radius:1px;background:linear-gradient(#F3DFA2,#B8913A);animation:spark .6s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes spark{from{opacity:1;transform:rotate(var(--a)) translateY(-6px) scaleY(1)}to{opacity:0;transform:rotate(var(--a)) translateY(-30px) scaleY(.2)}}
+.live{position:relative;display:inline-flex}
+.live::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #4E8A3E;animation:pulse 2.4s ease-out 2.2s infinite;opacity:0}
+@keyframes pulse{from{opacity:.8;transform:scale(1)}to{opacity:0;transform:scale(2.6)}}
+@media (min-width:641px){.type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;border-right:2px solid transparent;animation:typing 1.5s steps(47,end) 1.9s both,caret .8s step-end 1.9s 3}}
+@keyframes typing{from{width:0}to{width:47ch}}
+@keyframes caret{50%{border-color:#3F5E37}}
+.btn-ivy,.btn-stone{transition:translate .2s ease-out,background-color .2s ease-out}
+.btn-ivy:hover,.btn-stone:hover{translate:0 -1px}
+.nl{position:relative;color:#4A4F47!important;text-decoration:none}
+.nl::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:#A8842F;transform:scaleX(0);transform-origin:left;transition:transform .25s ease-out}
+.nl:hover::after,.nl:focus-visible::after{transform:scaleX(1)}
+/* card hover: one variant per "Survol des cartes" tweak, none of them moves the card */
+.ivy-sh{animation:fadein .8s ease-out var(--d) both}
+/* entering a temple card replays its ivy, quickly, then lets it sway; the class stays so leaving replays nothing */
+@keyframes unfurl2{from{opacity:0;transform:scale(0) rotate(-30deg)}to{opacity:1;transform:none}}
+@keyframes draw2{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes fadein2{from{opacity:0}}
+.hv-ivy .tcard.rg .lf{animation:unfurl2 .35s cubic-bezier(.2,.9,.3,1.25) calc(var(--d) * .18) both,rustle 2s ease-in-out calc(var(--d) * .18 + .4s) both}
+.hv-ivy .tcard.rg .st{animation:draw2 calc(var(--t) * .3) ease-out calc(var(--d) * .18) both}
+.hv-ivy .tcard.rg .fd{animation:fadein2 .3s ease-out calc(var(--d) * .18) both}
+.hv-ivy .tcard.rg .ivy-sh{animation:fadein2 .4s ease-out .8s both}
+.hv-ivy .lift:hover .crown,.hv-ivy .lift:hover .sprig{animation:rustle 1.8s ease-in-out both}
+.crown,.sprig{transform-origin:50% 100%}
+@keyframes rustle{0%,100%{rotate:0deg}30%{rotate:6deg}65%{rotate:-4deg}}
+.lift h3{background:linear-gradient(#A8842F,#A8842F) no-repeat 0 100%/0 1px;transition:color .6s ease-out,background-size .7s cubic-bezier(.25,.6,.3,1)}
+.stele h3{background-position:50% 100%}
+.hv-gold .lift:hover h3{color:#7A5E1C;background-size:100% 1px}
+.wall::before,.stele-body::before,.ex::before{content:"";position:absolute;inset:12px;border:1px solid #A8842F;border-radius:inherit;opacity:0;transition:opacity .7s ease-out,inset .7s cubic-bezier(.25,.6,.3,1);pointer-events:none;z-index:2}
+.hv-filet .lift:hover .wall::before,.hv-filet .lift:hover .stele-body::before,.hv-filet .lift.ex:hover::before{opacity:.65;inset:7px}
+.lift{transition:filter .9s cubic-bezier(.25,.6,.3,1)}
+.hv-soleil .lift:hover{filter:drop-shadow(-10px 12px 10px rgba(80,70,50,.16))}
+summary .chev{display:inline-block;transition:transform .25s ease-out}
+details[open]>p{animation:rise .35s ease-out both}
+/* each section plays its animations once, when it first comes into view */
+.armed .sec:not(.in) *,.armed .sec:not(.in) *::before,.armed .sec:not(.in) *::after{animation-play-state:paused!important}
+.rv{animation:soft 1s cubic-bezier(.25,.6,.3,1) var(--rd,.05s) both}
+@keyframes soft{from{opacity:0;transform:translateY(6px)}}
+.rv.r2{--rd:.12s}.rv.r3{--rd:.24s}
+@media (max-width:1179px){.drape,.plaque-ivy{display:none}}
+@media (max-width:900px){.hcol.outer{display:none}}
+@media (max-width:640px){.hcol{display:none}.colonnade{height:auto;padding:40px 0}.plaque{height:auto;flex-wrap:wrap}.plaque>div{flex-basis:50%;padding:18px}.plaque>div+div{border-left:0}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rw{transition:none}}
+</style>
+</helmet>
+<div class="page {{armed}} {{hoverCls}}">
+<svg width="0" height="0" style="position: absolute;" aria-hidden="true"><defs>$DEFS</defs></svg>
+<svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".4"></rect><rect width="100%" height="100%" fill="#fff" filter="url(#fGrain)" opacity=".25"></rect></svg>
+
+<header style="border-bottom: 1px solid #DDD7CC;">
+<nav aria-label="Navigation principale" class="wrap" style="padding-top: 16px; padding-bottom: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px;">
+<a href="#" style="display: flex; align-items: center; gap: 12px; color: #2B2F2A; text-decoration: none; font-family: {{headingFont}}; font-weight: 700; font-size: 22px; letter-spacing: 0.08em;">
+<svg width="36" height="22" viewBox="0 0 36 22" aria-hidden="true"><polyline points="2,4 10,17 18,9 26,18 34,3" fill="none" stroke="#A8842F" stroke-width="1.1"></polyline><g fill="url(#gGold)"><circle cx="2" cy="4" r="2"></circle><circle cx="10" cy="17" r="2.2"></circle><circle cx="18" cy="9" r="2.6"></circle><circle cx="26" cy="18" r="2"></circle><circle cx="34" cy="3" r="2.2"></circle></g></svg>
+CASSIOPÉE
+</a>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 26px; flex: 1 1 auto; font-size: 17px;">
+<a href="#" class="nl">Préparer son app</a>
+<a href="#" class="nl">Exemples</a>
+<a href="#" class="nl">L'oracle</a>
+</div>
+<a href="#" class="btn-stone" style="min-height: 44px; font-size: 16px;">Ouvrir l'intranet</a>
+</nav>
+</header>
+
+<section data-reveal="hero" class="iso sec {{rv.hero}}" style="padding: 36px 0 56px;">
+<div class="rays" aria-hidden="true"><i style="--x: 18%; --w: 140px; --d: 0s;"></i><i style="--x: 38%; --w: 220px; --d: -3s;"></i><i style="--x: 62%; --w: 120px; --d: -6s;"></i></div>
+<div class="dust" aria-hidden="true">$DUST</div>
+<div class="wrap">
+<div class="iso">
+<svg class="ivy-back drape" style="left: 0; top: 0; width: 1116px; height: 700px;" viewBox="0 0 1116 700" aria-hidden="true">$HERO_BACK</svg>
+<svg class="z1" viewBox="0 -48 1116 262" style="display: block; width: 100%; height: auto; overflow: visible;" role="img" aria-label="Fronton de temple en marbre, couronne de laurier sculptée et palmettes dorées">$PEDIMENT</svg>
+<div class="frieze z1 iso">
+<svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fGrain)" opacity=".5"></rect></svg>
+<svg width="16" height="16" viewBox="-6 -6 12 12" aria-hidden="true" style="position: absolute; left: 18px;"><use href="#rosette"></use></svg>
+<p class="engraved" style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 15px; letter-spacing: 0.32em;">CASSIOPÉE · PLATEFORME DE DÉPLOIEMENT DU SIGL</p>
+<svg width="16" height="16" viewBox="-6 -6 12 12" aria-hidden="true" style="position: absolute; right: 18px;"><use href="#rosette"></use></svg>
+</div>
+<svg class="z1" viewBox="0 0 1116 22" preserveAspectRatio="none" style="display: block; width: 100%; height: 22px;" aria-hidden="true">$ARCH_HERO</svg>
+<div class="colonnade z1">
+<svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true">$COL_OL</svg>
+<svg class="hcol" viewBox="0 0 120 705" aria-hidden="true">$COL_IL</svg>
+<div class="hero-text">
+<p class="eyebrow shiny">Ton projet, porté au firmament</p>
+<h1 aria-label="Mets ton API parmi les étoiles" style="margin: 0; font-family: {{headingFont}}; font-weight: 700; font-size: 52px; line-height: 1.1; letter-spacing: 0.02em; color: #232722; max-width: 12em;"><span class="bw" style="--i: 0;">Mets</span> <span class="bw" style="--i: 1;">ton</span> <span class="bw rot" style="--i: 2;"><sc-for list="{{words}}" as="w" hint-placeholder-count="4"><span class="{{w.cls}}">{{w.text}}</span></sc-for></span> <span class="bw" style="--i: 3;">parmi</span> <span class="bw" style="--i: 4;">les</span> <span class="bw" style="--i: 5;">étoiles</span></h1>
+<p class="fx" style="--d: 1s; margin: 0; max-width: 30em; font-size: 21px; color: #4A4F47;">Une image Docker, un formulaire dans l'intranet, et ton app répond en HTTPS sur sa propre adresse. Base, secrets et espace d'équipe compris : aucun sacrifice aux dieux de Kubernetes.</p>
+<div class="fx" style="--d: 1.25s; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+<span class="cta"><a href="#" class="btn-ivy star" onClick="{{spark}}"><svg width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true" style="transform: scaleX(-1);"><use href="#sprig"></use></svg>Déployer depuis l'intranet<svg width="26" height="14" viewBox="-2 -19 42 22" aria-hidden="true"><use href="#sprig"></use></svg></a><sc-if value="{{sparkOn}}" hint-placeholder-val="{{ false }}"><span class="sparks" style="left: {{sx}}px; top: {{sy}}px;" aria-hidden="true"><i style="--a: 0deg;"></i><i style="--a: 45deg;"></i><i style="--a: 90deg;"></i><i style="--a: 135deg;"></i><i style="--a: 180deg;"></i><i style="--a: 225deg;"></i><i style="--a: 270deg;"></i><i style="--a: 315deg;"></i></span></sc-if></span>
+<a href="#" class="btn-stone">Préparer son app en 5 min</a>
+</div>
+<p class="fx" style="--d: 1.6s; margin: 4px 0 0; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 12px; padding: 8px 16px; border: 1px solid #D3CCC0; border-radius: 4px; background: rgba(255,255,255,.75); font-size: 16px;"><span style="display: inline-flex; align-items: center; gap: 6px; color: #3F5E37;"><span class="live"><svg width="9" height="9" aria-hidden="true"><circle cx="4.5" cy="4.5" r="4.5" fill="#4E8A3E"></circle></svg></span>En ligne</span><span class="type" style="font-family: 'JetBrains Mono', monospace; font-size: 14px; overflow-wrap: anywhere;">https://livre-dor.cassiopee.siops.sigl.epita.fr</span></p>
+</div>
+<svg class="hcol" viewBox="0 0 120 705" aria-hidden="true">$COL_IR</svg>
+<svg class="hcol outer" viewBox="0 0 120 705" aria-hidden="true">$COL_OR</svg>
+</div>
+<svg class="z1" viewBox="0 0 1164 46" preserveAspectRatio="none" style="display: block; width: calc(100% + 48px); margin: 0 -24px; height: 46px;" aria-hidden="true">$STEPS_HERO</svg>
+<svg class="ivy-front drape" style="left: 0; top: 0; width: 1116px; height: 700px;" viewBox="0 0 1116 700" aria-hidden="true">$HERO_FRONT</svg>
+</div>
+</div>
+</section>
+
+<section data-reveal="plaque" class="wrap sec {{rv.plaque}}" style="padding-top: 72px; padding-bottom: 24px;">
+<div class="iso">
+<svg class="ivy-back plaque-ivy" style="left: -40px; top: -46px;" width="240" height="260" viewBox="0 0 240 260" aria-hidden="true">$PLAQUE_BACK</svg>
+<div class="plaque z1 iso rv">
+<svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".6"></rect><rect width="100%" height="100%" fill="#fff" filter="url(#fGrain)" opacity=".45"></rect></svg>
+<div><p class="num engraved" style="font-family: {{headingFont}};">3</p><p style="margin: 8px 0 0; font-size: 17px;"><b>clics</b> pour mettre ton app en ligne</p></div>
+<div><p class="num engraved" style="font-family: {{headingFont}};">2</p><p style="margin: 8px 0 0; font-size: 17px;"><b>clics</b> pour une base PostgreSQL</p></div>
+<div><p class="num engraved" style="font-family: {{headingFont}};">0</p><p style="margin: 8px 0 0; font-size: 17px;"><b>ligne</b> de YAML ou de Kubernetes</p></div>
+<div><p class="num engraved" style="font-family: {{headingFont}};">1</p><p style="margin: 8px 0 0; font-size: 17px;"><b>adresse HTTPS</b> par app, certificat compris</p></div>
+</div>
+<svg class="ivy-front plaque-ivy" style="left: -40px; top: -46px;" width="240" height="260" viewBox="0 0 240 260" aria-hidden="true">$PLAQUE_FRONT</svg>
+</div>
+</section>
+
+<section data-reveal="piliers" class="wrap sec {{rv.piliers}}" style="padding-top: 64px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 40px;">
+<div class="rv" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+<svg width="160" height="14" aria-hidden="true"><rect width="160" height="14" fill="url(#meander)"></rect></svg>
+<h2 style="margin: 0; font-family: {{headingFont}}; font-weight: 700; font-size: 40px; letter-spacing: 0.03em;">Les trois piliers</h2>
+<p style="margin: 0; max-width: 34em; color: #4A4F47;">Ce que Cassiopée te fournit, sans rien installer ni configurer.</p>
+</div>
+<div class="card-row">
+
+<article onMouseEnter="{{regrow}}" class="tcard lift rv">
+<div class="z1" style="position: relative;">
+<svg viewBox="0 -22 370 92" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 92px; overflow: visible;" aria-hidden="true">$ROOF1</svg>
+<svg width="50" height="36" viewBox="0 0 56 40" aria-hidden="true" style="position: absolute; left: 50%; top: 41px; transform: translateX(-50%);"><g fill="none" stroke="#A8842F" stroke-width="1.7"><polygon points="2,14 14,6 26,14"></polygon><line x1="5" y1="14" x2="5" y2="34"></line><line x1="11" y1="14" x2="11" y2="34"></line><line x1="17" y1="14" x2="17" y2="34"></line><line x1="23" y1="14" x2="23" y2="34"></line><line x1="1" y1="36" x2="27" y2="36"></line><polygon points="30,18 40,11 50,18"></polygon><line x1="33" y1="18" x2="33" y2="34"></line><line x1="40" y1="18" x2="40" y2="34"></line><line x1="47" y1="18" x2="47" y2="34"></line><line x1="29" y1="36" x2="51" y2="36"></line></g></svg>
+</div>
+<svg class="z1" viewBox="0 0 370 16" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 16px;" aria-hidden="true">$ARCH_CARD</svg>
+<div class="tbody">
+<div class="wall"><svg class="tex" aria-hidden="true" style="z-index: 0;"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".4"></rect></svg></div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD1_L</svg>
+<div class="ttext">
+<p class="label" style="margin: 0;">Deux espaces</p>
+<h3 style="font-family: {{headingFont}};">Un temple pour ton groupe, un autre pour toi</h3>
+<p>Le même quota pour toutes les équipes : 6 vCPU, 9 Go, 18 apps, 18 bases.</p>
+</div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD1_R</svg>
+</div>
+<svg class="z1" viewBox="0 0 370 30" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 30px;" aria-hidden="true">$STEPS_CARD1</svg>
+</article>
+
+<article onMouseEnter="{{regrow}}" class="tcard lift rv r2">
+<div class="z1" style="position: relative;">
+<svg viewBox="0 -22 370 92" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 92px; overflow: visible;" aria-hidden="true">$ROOF2</svg>
+<svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true" style="position: absolute; left: 50%; top: 41px; transform: translateX(-50%);"><g fill="none" stroke="#A8842F" stroke-width="1.7"><path d="M14,6 h12 M16,6 v5 C8,13 6,22 10,30 C12,35 28,35 30,30 C34,22 32,13 24,11 v-5"></path><path d="M10,18 C4,18 4,26 10,26 M30,18 C36,18 36,26 30,26"></path><circle cx="20" cy="22" r="3.4"></circle><line x1="20" y1="25.4" x2="20" y2="29"></line></g></svg>
+</div>
+<svg class="z1" viewBox="0 0 370 16" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 16px;" aria-hidden="true">$ARCH_CARD</svg>
+<div class="tbody">
+<div class="wall"><svg class="tex" aria-hidden="true" style="z-index: 0;"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".4"></rect></svg></div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD2_L</svg>
+<div class="ttext">
+<p class="label" style="margin: 0;">Secrets</p>
+<h3 style="font-family: {{headingFont}};">Coffre fort fourni</h3>
+<p>Range tous les secrets dont ton app a besoin dans un Vault réservé pour toi et ton équipe.</p>
+</div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD2_R</svg>
+</div>
+<svg class="z1" viewBox="0 0 370 30" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 30px;" aria-hidden="true">$STEPS_CARD2</svg>
+</article>
+
+<article onMouseEnter="{{regrow}}" class="tcard lift rv r3">
+<svg class="ivy-back drape" style="right: -8px; top: 0;" width="150" height="420" viewBox="0 0 150 420" aria-hidden="true">$CARD3_BACK</svg>
+<div class="z1" style="position: relative;">
+<svg viewBox="0 -22 370 92" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 92px; overflow: visible;" aria-hidden="true">$ROOF3</svg>
+<svg width="40" height="36" viewBox="0 0 44 40" aria-hidden="true" style="position: absolute; left: 50%; top: 41px; transform: translateX(-50%);"><g fill="none" stroke="#A8842F" stroke-width="1.7"><path d="M10,36 C4,26 6,10 14,4 M34,36 C40,26 38,10 30,4"></path><line x1="12" y1="12" x2="32" y2="12"></line><line x1="16" y1="12" x2="16" y2="34"></line><line x1="22" y1="12" x2="22" y2="34"></line><line x1="28" y1="12" x2="28" y2="34"></line><line x1="9" y1="34" x2="35" y2="34"></line></g></svg>
+</div>
+<svg class="z1" viewBox="0 0 370 16" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 16px;" aria-hidden="true">$ARCH_CARD</svg>
+<div class="tbody">
+<div class="wall"><svg class="tex" aria-hidden="true" style="z-index: 0;"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".4"></rect></svg></div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD3_L</svg>
+<div class="ttext">
+<p class="label" style="margin: 0;">Apps, bots, tâches</p>
+<h3 style="font-family: {{headingFont}};">Tout se déploie pareil</h3>
+<p>Un site, une API, un bot Discord ou une tâche qui tourne toutes les heures.</p>
+</div>
+<svg class="tcol" viewBox="0 0 60 425" aria-hidden="true">$CARD3_R</svg>
+</div>
+<svg class="z1" viewBox="0 0 370 30" preserveAspectRatio="none" style="display: block; width: calc(100% + 16px); margin: 0 -8px; height: 30px;" aria-hidden="true">$STEPS_CARD3</svg>
+<svg class="ivy-front drape" style="right: -8px; top: 0;" width="150" height="420" viewBox="0 0 150 420" aria-hidden="true">$CARD3_FRONT</svg>
+</article>
+</div>
+</section>
+
+<section data-reveal="rituel" class="iso sec {{rv.rituel}}">
+<div class="wrap" style="padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 30px;">
+<h2 class="rv" style="margin: 0; text-align: center; font-family: {{headingFont}}; font-weight: 700; font-size: 40px; letter-spacing: 0.03em;">Le rituel, en trois étapes</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 26px;">
+<li class="stele lift rv"><svg class="crown" width="60" height="46" viewBox="0 0 60 46" aria-hidden="true">$CROWN</svg><div class="stele-body"><svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".45"></rect></svg>
+<span class="ring" style="font-family: {{headingFont}};">1</span>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 21px;">Prépare ton image</h3>
+<p style="margin: 0; color: #4A4F47;">Publique, avec un tag, pour <code>linux/amd64</code>. Un seul port, pas de root.</p>
+</div></li>
+<li class="stele lift rv r2"><svg class="crown" width="60" height="46" viewBox="0 0 60 46" aria-hidden="true">$CROWN</svg><div class="stele-body"><svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".45"></rect></svg>
+<span class="ring" style="font-family: {{headingFont}};">2</span>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 21px;">Remplis le formulaire</h3>
+<p style="margin: 0; color: #4A4F47;">L'image, le port pré-rempli, tes variables, tes secrets, et une base si besoin.</p>
+</div></li>
+<li class="stele lift rv r3"><svg class="crown" width="60" height="46" viewBox="0 0 60 46" aria-hidden="true">$CROWN</svg><div class="stele-body"><svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".45"></rect></svg>
+<span class="ring" style="font-family: {{headingFont}};">3</span>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 21px;">Partage ton adresse</h3>
+<p style="margin: 0; color: #4A4F47;">HTTPS sur sa propre adresse, et un statut qui dit pourquoi si l'app n'est pas prête.</p>
+</div></li>
+</ol>
+</div>
+</section>
+
+<section data-reveal="exemples" class="wrap sec {{rv.exemples}}" style="padding-top: 72px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 30px;">
+<div style="display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px;">
+<div class="rv" style="display: flex; flex-direction: column; gap: 8px;">
+<h2 style="margin: 0; font-family: {{headingFont}}; font-weight: 700; font-size: 40px; letter-spacing: 0.03em;">Trois exemples, en ligne</h2>
+<p style="margin: 0; max-width: 36em; color: #4A4F47;">Chacun tourne sur Cassiopée. Ouvre-le, lis le code, et recopie les valeurs du formulaire.</p>
+</div>
+<a href="#">Tous les exemples</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 22px;">
+<article class="iso lift ex rv" style="overflow: hidden; flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 3px 0 #E2DCD1;">
+<svg class="sprig" width="84" height="22" viewBox="-42 -20 84 22" aria-hidden="true"><use href="#sprig" transform="scale(-1 1)"></use><use href="#sprig"></use></svg>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #3F5E37;">front · API · PostgreSQL</p>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 22px;">Livre d'or</h3>
+<p style="margin: 0; color: #4A4F47;">La base est branchée par une référence, la clé d'API par un secret.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;"><a href="#" class="btn-ivy" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Voir en ligne</a><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Code</a><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Recette</a></div>
+</article>
+<article class="iso lift ex rv r2" style="overflow: hidden; flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 3px 0 #E2DCD1;">
+<svg class="sprig" width="84" height="22" viewBox="-42 -20 84 22" aria-hidden="true"><use href="#sprig" transform="scale(-1 1)"></use><use href="#sprig"></use></svg>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #3F5E37;">tâche planifiée · toutes les heures</p>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 22px;">Statistiques horaires</h3>
+<p style="margin: 0; color: #4A4F47;">Calcule des statistiques dans la même base ; le livre d'or les affiche.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;"><a href="#" class="btn-ivy" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Voir en ligne</a><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Code</a><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Recette</a></div>
+</article>
+<article class="iso lift ex rv r3" style="overflow: hidden; flex: 1 1 300px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 3px 0 #E2DCD1;">
+<svg class="sprig" width="84" height="22" viewBox="-42 -20 84 22" aria-hidden="true"><use href="#sprig" transform="scale(-1 1)"></use><use href="#sprig"></use></svg>
+<p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #3F5E37;">app sans port · secret</p>
+<h3 style="margin: 0; font-family: {{headingFont}}; font-weight: 600; font-size: 22px;">Bot Discord</h3>
+<p style="margin: 0; color: #4A4F47;">Son jeton est un secret : ni dans Git, ni réaffiché après la saisie.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;"><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Code</a><a href="#" class="btn-stone" style="min-height: 44px; padding: 0 16px; font-size: 16px;">Recette</a></div>
+</article>
+</div>
+</section>
+
+<section data-reveal="oracle" class="iso sec {{rv.oracle}}">
+<div class="wrap" style="padding-top: 72px; padding-bottom: 72px; display: flex; flex-wrap: wrap; gap: 44px;">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px;">
+<h2 style="margin: 0; font-family: {{headingFont}}; font-weight: 700; font-size: 34px; letter-spacing: 0.03em;">Ce que le temple accueille</h2>
+<div style="background: #FFFFFF; border: 1px solid #CFC8BB; border-left: 4px solid #4E6E43; border-radius: 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;"><p style="margin: 0; font-family: {{headingFont}}; font-weight: 600; color: #3F5E37;">Bienvenus</p><p style="margin: 0;">Front, API et PostgreSQL ; bot ; tâche planifiée</p></div>
+<div style="background: #F7F5F0; border: 1px solid #CFC8BB; border-left: 4px solid #8E877A; border-radius: 4px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;"><p style="margin: 0; font-family: {{headingFont}}; font-weight: 600; color: #5E584E;">Refusés</p><p style="margin: 0;">Dix microservices, Kafka, serveur UDP, PAE</p></div>
+</div>
+<div style="flex: 1.4 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+<h2 style="margin: 0 0 4px; font-family: {{headingFont}}; font-weight: 700; font-size: 34px; letter-spacing: 0.03em;">Consulte l'oracle</h2>
+<details open="" style="background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 4px; padding: 14px 18px;"><summary style="cursor: pointer; font-family: {{headingFont}}; font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: center;"><span class="chev" style="color: #A8842F;">›</span>Mon site répond 502</summary><p style="margin: 10px 0 0; color: #4A4F47;">L'app écoute sur <code>localhost</code> ou sur un autre port : elle doit écouter sur <code>0.0.0.0</code>, sur le port déclaré.</p></details>
+<details style="background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 4px; padding: 14px 18px;"><summary style="cursor: pointer; font-family: {{headingFont}}; font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: center;"><span class="chev" style="color: #A8842F;">›</span>ImagePullBackOff</summary></details>
+<details style="background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 4px; padding: 14px 18px;"><summary style="cursor: pointer; font-family: {{headingFont}}; font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: center;"><span class="chev" style="color: #A8842F;">›</span>Où mettre mes mots de passe ?</summary></details>
+<details style="background: #FFFFFF; border: 1px solid #CFC8BB; border-radius: 4px; padding: 14px 18px;"><summary style="cursor: pointer; font-family: {{headingFont}}; font-weight: 600; list-style: none; display: flex; gap: 10px; align-items: center;"><span class="chev" style="color: #A8842F;">›</span>Mon app sera-t-elle supprimée ?</summary></details>
+</div>
+</div>
+</section>
+
+<footer data-reveal="fin" class="iso sec {{rv.fin}}">
+<svg width="100%" height="14" aria-hidden="true" style="display: block;"><rect width="100%" height="14" fill="url(#meander)"></rect></svg>
+<div class="wrap" style="padding-top: 56px; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center;">
+<h2 class="rv" style="margin: 0; font-family: {{headingFont}}; font-weight: 700; font-size: 36px; letter-spacing: 0.04em;">Ton temple t'attend</h2>
+<a href="#" class="btn-ivy">Déployer depuis l'intranet</a>
+<p style="margin: 12px 0 0; font-size: 16px; color: #6B655A;">Cassiopée est maintenu par l'équipe SiOps du SIGL.</p>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"titres":{"editor":"enum","options":["Cinzel","Marcellus","Cinzel Decorative","Cormorant SC"],"default":"Cinzel","section":"Typographie"},"survol":{"editor":"enum","options":["Lierre qui frémit","Gravure dorée","Filet d&#39;or","Ombre au soleil","Aucun"],"default":"Lierre qui frémit","section":"Animations"},"$preview":{"width":1440,"height":4100}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { word: 0, sparkOn: false, sx: 0, sy: 0, armed: false, seen: {} };
+}
+componentDidMount() {
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+// sections hold their animations until they first enter the viewport, then play them once
+if ('IntersectionObserver' in window) {
+this.io = new IntersectionObserver((entries) => {
+const seen = Object.assign({}, this.state.seen);
+entries.forEach((en) => { if (en.isIntersecting) { seen[en.target.dataset.reveal] = true; this.io.unobserve(en.target); } });
+this.setState({ seen: seen });
+}, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+document.querySelectorAll('[data-reveal]').forEach((el) => this.io.observe(el));
+this.setState({ armed: true });
+}
+// RotatingText: two passes over the words, then rest on "API"
+let n = 0;
+this.timer = setInterval(() => {
+n += 1;
+this.setState({ word: n % 4 });
+if (n >= 8) clearInterval(this.timer);
+}, 2400);
+}
+componentWillUnmount() {
+if (this.io) this.io.disconnect();
+clearInterval(this.timer);
+clearTimeout(this.sparkTimer);
+}
+renderVals() {
+const font = this.props.titres ?? 'Cinzel';
+const cur = (this.state && this.state.word) || 0;
+const words = ['API', 'app', 'bot', 'site'];
+const seen = (this.state && this.state.seen) || {};
+const rv = {};
+['hero', 'plaque', 'piliers', 'rituel', 'exemples', 'oracle', 'fin'].forEach((k) => { rv[k] = seen[k] ? 'in' : ''; });
+const hv = { 'Lierre qui frémit': 'hv-ivy', 'Gravure dorée': 'hv-gold', "Filet d'or": 'hv-filet', 'Ombre au soleil': 'hv-soleil', 'Aucun': '' };
+return {
+hoverCls: hv[this.props.survol ?? 'Lierre qui frémit'] ?? 'hv-ivy',
+armed: this.state && this.state.armed ? 'armed' : '',
+rv: rv,
+headingFont: "'" + font + "', 'Cinzel', Georgia, serif",
+words: words.map((w, i) => ({ text: w, cls: i === cur ? 'rw on' : (i === (cur + 3) % 4 ? 'rw prev' : 'rw') })),
+sparkOn: !!(this.state && this.state.sparkOn),
+sx: (this.state && this.state.sx) || 0,
+sy: (this.state && this.state.sy) || 0,
+regrow: (e) => {
+const el = e.currentTarget;
+el.classList.remove('rg');
+void el.offsetWidth;
+el.classList.add('rg');
+},
+// ClickSpark: gold sparks where the main button is clicked
+spark: (e) => {
+e.preventDefault();
+const r = e.currentTarget.getBoundingClientRect();
+const sx = Math.round(e.clientX - r.left);
+const sy = Math.round(e.clientY - r.top);
+clearTimeout(this.sparkTimer);
+this.setState({ sparkOn: false }, () => requestAnimationFrame(() => this.setState({ sparkOn: true, sx: sx, sy: sy })));
+this.sparkTimer = setTimeout(() => this.setState({ sparkOn: false }), 700);
+}
+};
+}
+}
+</script>
+</body>
+</html>
