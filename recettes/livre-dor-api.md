@@ -18,4 +18,4 @@
 
 `ADMIN_TOKEN` : `openssl rand -hex 32`. Garde-le ailleurs si tu en as besoin ; laissé vide en modification, il est conservé.
 
-`<sha>` : voir le `README.md` de ce dossier. `TRUST_FORWARDED_FOR` : à ajouter plus tard, voir le `README.md`.
+`<sha>` : voir le `README.md` de ce dossier. `TRUST_FORWARDED_FOR` : à passer à `true` après vérification, voir le `README.md`.

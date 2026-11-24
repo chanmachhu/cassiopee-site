@@ -10,7 +10,7 @@ Une recette par ressource, avec les valeurs exactes à saisir dans le formulaire
 
 ## Ordre de déploiement
 
-1. [`livre-dor-db`](livre-dor-db.md) : la base. Applique ensuite `examples/livre-dor/schema.sql` si la base est vide.
+1. [`livre-dor-db`](livre-dor-db.md) : la base. L'API crée les tables elle-même au démarrage.
 2. [`livre-dor-api`](livre-dor-api.md)
 3. [`livre-dor-front`](livre-dor-front.md)
 4. [`livre-dor-stats`](livre-dor-stats.md)
@@ -29,9 +29,12 @@ Après avoir choisi les adresses du front du livre d'or (et de l'API si tu en ex
 
 Cette variable de l'API dit si l'adresse du visiteur se lit dans `X-Forwarded-For`. À `false` (défaut), tous les visiteurs derrière le proxy partagent une seule limite de débit.
 
+Étape de mainteneur (accès kubectl au cluster).
+
 1. Déploie l'API avec `TRUST_FORWARDED_FOR=false` (valeur par défaut, rien à saisir).
-2. Fais quelques requêtes et regarde les logs de l'API ou une requête de test : l'adresse réelle du visiteur arrive-t-elle dans `X-Forwarded-For` ?
-3. Seulement si oui : ajoute la variable `TRUST_FORWARDED_FOR` = `true` (Valeur) et redéploie.
+2. Depuis ton navigateur, fais une requête vers le livre d'or.
+3. Dans les logs du contrôleur ingress-nginx du cluster, repère la ligne d'accès : son premier champ est l'adresse du client. Compare-la à ton adresse publique (par exemple https://ifconfig.me).
+4. Même adresse : l'adresse réelle du visiteur arrive jusqu'aux apps. Ajoute `TRUST_FORWARDED_FOR` = `true` (Valeur) sur `livre-dor-api` et redéploie. Sinon, garde `false` (tous les visiteurs partageraient une seule limite par client).
 
 ## Nettoyage annuel
 
