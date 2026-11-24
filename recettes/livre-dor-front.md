@@ -4,7 +4,7 @@
 |---|---|
 | Espace | équipe |
 | Type | Application |
-| Image | `ghcr.io/chanmachhu/cassiopee-livre-dor-front`, tag `<sha>` |
+| Image | `ghcr.io/<propriétaire>/cassiopee-livre-dor-front`, tag `<sha>` |
 | Port | 8080 |
 | Adresse publique | à choisir au déploiement |
 

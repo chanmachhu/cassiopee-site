@@ -21,7 +21,15 @@ nvm use 22
 cd site && npm ci && npm run dev
 ```
 
-Exemples Python : `pytest` dans chaque dossier (`api`, `stats`, `bot`).
+Exemples Python, dans chacun des dossiers `api`, `stats`, `bot` de `examples/livre-dor` :
+
+```bash
+python -m venv .venv && . .venv/bin/activate
+pip install -r requirements-dev.txt
+pytest
+```
+
+Les tests PostgreSQL (`api`, `stats`) sont ignorés sans `TEST_DATABASE_URL`. Front : `node --test tests/app.test.mjs` dans `examples/livre-dor/front`.
 
 ## Publication des images
 
@@ -35,9 +43,15 @@ La CI construit les images à chaque push sur `main` et les publie sur GHCR, tag
 
 ## Nettoyage annuel
 
-Cassiopée supprime les apps chaque année. **Le site et les exemples ne doivent pas être supprimés** : ils sont la vitrine de la plateforme.
+Le nettoyage est fait à la main par SiOps (aucun job ne supprime les apps). **Ces six ressources doivent être exclues** : ce sont la vitrine de la plateforme.
+
+- `cassiopee-site` (espace perso)
+- `livre-dor-db`, `livre-dor-api`, `livre-dor-front`, `livre-dor-stats`, `livre-dor-bot` (espace équipe)
 
 ## Passation
 
 1. Transférer le dépôt (Settings → Transfer ownership) vers le nouvel espace.
-2. Redéployer les apps dans le nouvel espace Cassiopée en suivant les recettes, et repasser les paquets GHCR en public s'ils ont changé de propriétaire.
+2. Les images sont publiées automatiquement sous le nouveau propriétaire (`ghcr.io/<propriétaire>/…`) ; passer chaque nouveau paquet en public, une fois.
+3. Mettre à jour le préfixe des images dans Cassiopée lors du redéploiement, en suivant les recettes.
+4. Mettre à jour les liens « Code » de `site/src/data/exemples.ts`.
+5. Mettre à jour le lien vers le site dans le README du dépôt Cassiopée et dans le wiki SiOps.

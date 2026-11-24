@@ -5,7 +5,7 @@
 | Espace | équipe |
 | Type | Tâche planifiée |
 | Planification (UTC) | `0 * * * *` (toutes les heures) |
-| Image | `ghcr.io/chanmachhu/cassiopee-livre-dor-stats`, tag `<sha>` |
+| Image | `ghcr.io/<propriétaire>/cassiopee-livre-dor-stats`, tag `<sha>` |
 | Port | pas de port |
 | Adresse publique | aucune |
 

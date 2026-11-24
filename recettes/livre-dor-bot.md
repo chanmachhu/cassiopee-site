@@ -6,7 +6,7 @@ Ne le déploie pas avant que l'application Discord existe. Jusque-là, la carte 
 |---|---|
 | Espace | équipe |
 | Type | Application |
-| Image | `ghcr.io/chanmachhu/cassiopee-livre-dor-bot`, tag `<sha>` |
+| Image | `ghcr.io/<propriétaire>/cassiopee-livre-dor-bot`, tag `<sha>` |
 | Port | pas de port |
 | Mémoire | 256 Mo (CPU : 100 m par défaut) |
 | Adresse publique | aucune |

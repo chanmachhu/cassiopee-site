@@ -8,11 +8,11 @@
 
 **Tech Stack:** Astro 7 (Node ≥ 22.23), React 19 via `@astrojs/react`, `motion` (requis par BlurText et RotatingText), Fontsource ; Python 3.12, FastAPI, psycopg 3, discord.py, httpx, pytest ; nginx-unprivileged ; GitHub Actions, GHCR.
 
-**Spec:** `docs/design.md`. Maquette : `docs/maquette/Mythologie.dc.html`. Dépôt Cassiopée (lecture seule) : `/home/hugo/epita/SIGL/SIOPS/cassiopee/.claude/worktrees/team-spaces`, à lire avec `git show origin/main:<fichier>`.
+**Spec:** `docs/design.md`. Maquette : `docs/maquette/Mythologie.dc.html`. Dépôt Cassiopée (lecture seule), à lire avec `git show origin/main:<fichier>`.
 
 ## Global Constraints
 
-- Dépôt : `chanmachhu/cassiopee-site`, public, compte personnel ; dossier local `/home/hugo/epita/SIGL/SIOPS/cassiopee-site`. Travail sur la branche `feat/site`, jamais directement sur `main` ; Hugo pousse et merge.
+- Dépôt : `chanmachhu/cassiopee-site`, public, compte personnel . Travail sur la branche `feat/site`, jamais directement sur `main` ; Hugo pousse et merge.
 - Images : `ghcr.io/chanmachhu/cassiopee-site`, `…/cassiopee-livre-dor-front`, `…/cassiopee-livre-dor-api`, `…/cassiopee-livre-dor-stats`, `…/cassiopee-livre-dor-bot` ; `linux/amd64` ; tag = 7 premiers caractères du SHA du commit ; jamais `latest` dans les recettes.
 - Toute image : utilisateur non root, écoute sur `0.0.0.0`, un seul port (8080 pour nginx, 8000 pour l'API), aucune écriture sur disque persistant.
 - Aucun secret dans le dépôt, les images ou les logs : `ADMIN_TOKEN` et `DISCORD_TOKEN` sont saisis dans Cassiopée comme secrets ; la base arrive par la référence `DATABASE_URL` (chaîne de connexion `postgresql://user:pass@host:5432/db`).
@@ -37,7 +37,7 @@
 ### Task 0 (contrôleur) : environnement — fait
 
 - [ ] **Step 1:** Installer Node 22 avec nvm (`nvm install 22 && nvm use 22`) ; vérifier `node --version` ≥ `v22.23.4` (Astro 7 l'exige ; seule la 20 est installée).
-- [ ] **Step 2:** Créer le dépôt : `gh repo create chanmachhu/cassiopee-site --public --add-readme --description "Site de présentation et exemples de Cassiopée"`, le cloner dans `/home/hugo/epita/SIGL/SIOPS/cassiopee-site`, créer la branche `feat/site`.
+- [ ] **Step 2:** Créer le dépôt : `gh repo create chanmachhu/cassiopee-site --public --add-readme --description "Site de présentation et exemples de Cassiopée"`, le cloner, créer la branche `feat/site`.
 - [ ] **Step 3:** Copier la maquette et le générateur : `.superpowers/site-mockups/project/Mythologie.dc.html` → `docs/maquette/Mythologie.dc.html`, `.superpowers/site-mockups/generator/{gen.py,template.html}` → `site/tools/`. Copier le design et ce plan dans `docs/`. Commit `chore: import mockup, generator and design docs`.
 
 ### Task 1 : squelette du dépôt et guide mis à jour
