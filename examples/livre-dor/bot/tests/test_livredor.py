@@ -1,7 +1,7 @@
 import httpx
 import pytest
 
-from livredor import LivreDorIndisponible, fetch_last, format_messages
+from livredor import API_TIMEOUT, LivreDorIndisponible, fetch_last, format_messages
 
 
 def test_format_escapes_discord_markup():
@@ -34,3 +34,22 @@ async def test_fetch_last_handles_api_down():
     async with httpx.AsyncClient(transport=httpx.MockTransport(down)) as client:
         with pytest.raises(LivreDorIndisponible):
             await fetch_last(client, "http://api")
+
+
+async def test_fetch_last_handles_timeout():
+    def slow(request):
+        raise httpx.ReadTimeout("slow")
+
+    async with httpx.AsyncClient(transport=httpx.MockTransport(slow)) as client:
+        with pytest.raises(LivreDorIndisponible):
+            await fetch_last(client, "http://api")
+
+
+def test_api_timeout_fits_discord_deadline():
+    assert API_TIMEOUT.connect + API_TIMEOUT.read <= 2.5
+
+
+def test_bot_client_uses_api_timeout():
+    import bot
+
+    assert bot.bot.http_client.timeout == API_TIMEOUT

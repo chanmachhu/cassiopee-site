@@ -3,6 +3,8 @@ from discord.utils import escape_markdown, escape_mentions
 
 LIMIT = 2000  # Discord message size limit
 ELLIPSIS = " …"
+# Discord wants an acknowledgement within 3 s, so the whole API call must stay well under it.
+API_TIMEOUT = httpx.Timeout(1.5, connect=1.0)  # connect + read <= 2.5 s
 
 
 class LivreDorIndisponible(Exception):

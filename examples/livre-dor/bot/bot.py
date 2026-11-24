@@ -5,7 +5,7 @@ import discord
 import httpx
 from discord import app_commands
 
-from livredor import LivreDorIndisponible, fetch_last, format_messages
+from livredor import API_TIMEOUT, LivreDorIndisponible, fetch_last, format_messages
 
 API_URL = os.environ.get("API_URL", "http://livre-dor-api")
 
@@ -14,7 +14,7 @@ class Bot(discord.Client):
     def __init__(self):
         super().__init__(intents=discord.Intents.default())  # no privileged intents
         self.tree = app_commands.CommandTree(self)
-        self.http_client = httpx.AsyncClient(timeout=5)
+        self.http_client = httpx.AsyncClient(timeout=API_TIMEOUT)
 
     async def setup_hook(self):
         await self.tree.sync()  # global registration; can take a few minutes to show up
