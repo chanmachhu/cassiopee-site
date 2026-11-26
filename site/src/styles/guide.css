@@ -62,3 +62,5 @@ details[open] summary .chev{transform:rotate(90deg)}
 .warn p{margin:0}
 @media (max-width:900px){.guide{grid-template-columns:minmax(0,1fr);gap:28px;padding-top:28px}.toc-d{display:none}.toc-m{display:block}}
 @media (max-width:640px){.prose h2{font-size:24px;margin-top:48px}.prose h2 .ring{width:36px;height:36px;font-size:16px}.tablet{padding:24px 18px 12px}.warn{padding:18px 18px 16px}.mt table{font-size:15.5px}.mt td,.mt th{padding:8px 10px}}
+.toc a:focus-visible{outline-offset:-2px}
+.toc-m .chev{color:var(--gold)}

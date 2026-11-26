@@ -4,7 +4,7 @@ import IvyHead from './guide/IvyHead.astro';
 interface Props { crumb: string; eyebrow: string; title: string; lead: string }
 const { crumb, eyebrow, title, lead } = Astro.props;
 ---
-<ol class="crumbs fx" style="--d: 0s" aria-label="Fil d'Ariane"><li><a href="/">Accueil</a></li><li><span aria-current="page">{crumb}</span></li></ol>
+<nav class="fx" style="--d: 0s" aria-label="Fil d'Ariane"><ol class="crumbs"><li><a href="/">Accueil</a></li><li><span aria-current="page">{crumb}</span></li></ol></nav>
 <div class="ph">
   <svg class="ph-cornice" aria-hidden="true"><rect width="100%" height="8" fill="url(#gCorona)" /><rect width="100%" height="1" fill="#fff" /><rect y="7.4" width="100%" height="1" fill="#6F6657" opacity=".35" /><g transform="translate(0 8)"><rect width="100%" height="12" fill="#D3CCBF" /><rect width="100%" height="12" fill="url(#pDentil)" /></g><rect y="19" width="100%" height="1" fill="#6F6657" opacity=".4" /><rect width="100%" height="20" fill="#fff" filter="url(#fGrain)" opacity=".45" /></svg>
   <div class="ph-band">
