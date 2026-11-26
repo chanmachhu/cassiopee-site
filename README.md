@@ -1,6 +1,6 @@
 # cassiopee-site
 
-Site de présentation de Cassiopée, la plateforme de déploiement du SIGL (les élèves y déploient une image de conteneur depuis l'intranet), et trois exemples d'applications déployables.
+Site de présentation de Cassiopée, la plateforme de déploiement de SIGL (les élèves y déploient une image de conteneur depuis l'intranet), et trois exemples d'applications déployables.
 
 ## Arborescence
 

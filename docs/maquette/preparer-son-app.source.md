@@ -4,7 +4,7 @@
 
 ## À quoi sert Cassiopée
 
-Cassiopée héberge les **projets des élèves** du SIGL : une application web, son API, sa base de données et son stockage, déployés depuis l'intranet sans toucher à Kubernetes. C'est une plateforme d'école : pas de garantie de disponibilité, pas de sauvegarde automatique, des ressources limitées.
+Cassiopée héberge les **projets des élèves** de SIGL : une application web, son API, sa base de données et son stockage, déployés depuis l'intranet sans toucher à Kubernetes. C'est une plateforme d'école : pas de garantie de disponibilité, pas de sauvegarde automatique, des ressources limitées.
 
 **Toutes les apps sont supprimées chaque année.** Cassiopée est fait pour des projets **éphémères** (projet de cours, hackathon, démo de fin de module), qui ne servent plus à la fin de l'année. Il n'est pas fait pour un PAE ou un service qui doit continuer à tourner d'une année sur l'autre.
 
