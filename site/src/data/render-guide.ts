@@ -41,7 +41,7 @@ function tablet(table: N) {
   return h('div', { className: ['tablet'] }, TEX(), h('h3', { className: ['engraved'] }, t('LES DIX RÈGLES')), h('ol', {}, ...items));
 }
 
-// Paragraphs shown as a warning boxes (3, by prefix), by text prefix. `lead`: the bold lead sentence is the title and leaves the body.
+// Paragraphs shown as warning boxes, matched by text prefix. `lead`: the bold lead sentence is the title and leaves the body.
 const WARN: { prefix: string; title?: string; lead?: boolean }[] = [
   { prefix: 'Toutes les apps sont supprimées', lead: true },
   { prefix: "Si l'image déclare un", title: 'Données perdues' },
@@ -53,7 +53,8 @@ function warn(p: N) {
   if (!rule) return p;
   let body = p.children;
   let title = rule.title ?? '';
-  if (rule.lead && body[0]?.tagName === 'strong') {
+  if (rule.lead) {
+    if (body[0]?.tagName !== 'strong') throw new Error(`guide: warning "${rule.prefix}" lost its bold lead`);
     title = text(body[0]).replace(/\.$/, '');
     body = body.slice(1);
     if (body[0]?.type === 'text') body = [{ ...body[0], value: body[0].value.replace(/^\s+/, '') }, ...body.slice(1)];
@@ -70,13 +71,17 @@ function block(node: N, id: string) {
   if (text(kids(head, 'th')[0]).trim() === '#') return tablet(node);
   rows(node).forEach((tr: N) => kids(tr, 'td').forEach(badge));
   if (id === 'compose') {
+    arrows = true;
     head.children.splice(1, 0, h('th'));
     rows(node).forEach((tr: N) => tr.children.splice(1, 0, ARROW()));
   }
   return h('div', { className: ['mt'] }, node);
 }
 
+let arrows = false; // set by block() when the compose table gets its arrows
+
 export function renderGuide(markdown: string) {
+  arrows = false;
   const tree: N = markdownToHast(markdown);
   const sections: N[] = [];
   const toc: ReturnType<typeof sectionMeta>[] = [];
@@ -90,8 +95,10 @@ export function renderGuide(markdown: string) {
       sections.push(h('section', { id: meta.id, 'data-reveal': meta.id, className: ['sec', 'rv'] }, node));
     } else {
       const cur = sections.at(-1);
-      cur?.children.push(block(node, cur.properties.id));
+      if (!cur) throw new Error('guide: content before the first "##" heading');
+      cur.children.push(block(node, cur.properties.id));
     }
   }
+  if (!arrows) throw new Error('guide: the compose table (section "compose") was not found');
   return { toc, html: hastToHtml(sections) };
 }

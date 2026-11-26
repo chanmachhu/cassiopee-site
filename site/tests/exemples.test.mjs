@@ -18,7 +18,7 @@ test('each example lists the variables of its recipe', () => {
   for (const [slug, names] of Object.entries(VARS)) {
     const s = section(slug);
     assert.ok(s, slug);
-    for (const n of names) assert.ok(s.includes(n), `${slug}: ${n}`);
+    for (const n of names) assert.ok(s.includes(`class="vn">${n}<`), `${slug}: ${n}`);
   }
   assert.ok(!section('stats').includes('ADMIN_TOKEN'));
 });

@@ -1,4 +1,4 @@
-// Short TOC label and anchor per `##` heading of the guide. A heading missing here gets its own text and a slug.
+// Short TOC label and anchor per `##` heading of the guide. A heading missing here fails the build.
 const META: Record<string, [id: string, label: string]> = {
   'À quoi sert Cassiopée': ['a-quoi-sert', 'À quoi sert Cassiopée'],
   'Ce qui change par rapport à ton poste': ['ce-qui-change', 'Ce qui change'],
@@ -22,6 +22,8 @@ const META: Record<string, [id: string, label: string]> = {
 export function sectionMeta(heading: string) {
   const m = heading.match(/^(\d+)\.\s+(.*)$/);
   const text = m ? m[2] : heading;
-  const [id, label] = META[text] ?? [text.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''), text];
+  const entry = META[text];
+  if (!entry) throw new Error(`guide: heading "${text}" has no META entry`);
+  const [id, label] = entry;
   return { n: m?.[1], id, label };
 }
