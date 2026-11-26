@@ -10,7 +10,7 @@ const { exemple: e, n } = Astro.props;
   <p>{e.resume}</p>
   <div class="btns">
     {e.enLigne && <a href={e.enLigne} class="btn-ivy">Voir en ligne</a>}
-    <a href={e.code} class="btn-stone">Code</a>
-    <a href={`/exemples#${e.slug}`} class="btn-stone">Recette</a>
+    <a href={e.code} class="btn-stone" target="_blank" rel="noopener" aria-label={`Code de l'exemple ${e.titre}`}>Code</a>
+    <a href={`/exemples#${e.slug}`} class="btn-stone" aria-label={`Recette de l'exemple ${e.titre}`}>Recette</a>
   </div>
 </article>
