@@ -47,7 +47,6 @@
 .rc-k{display:block;font-family:var(--font-heading);font-weight:600;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#8A6C24;line-height:1.3}
 .rc-code{margin-left:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 10px;border:1px solid #CFC8BB;border-radius:3px;background:#FBFAF7;color:#3F5E37!important;text-decoration:none;font-size:15px}
 .rc-code:hover{background:#fff;border-color:#BDB5A7}
-.acts a svg{flex:0 0 auto}
 .rc-h h4{margin:0;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:16.5px;line-height:1.3}
 .fields{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 14px}
 .fld{grid-column:1/-1;min-width:0}
@@ -56,8 +55,8 @@
 .f{display:block;margin:0;padding:5px 10px;border-radius:3px;background:#FBFAF7;border:1px solid #D6CFC3;box-shadow:inset 0 1px 2px rgba(60,55,45,.08);font-family:'JetBrains Mono',monospace;font-size:13.5px;line-height:1.45;color:#2B2F2A;overflow-wrap:anywhere}
 .f.t{font-family:'EB Garamond',Georgia,serif;font-size:16.5px;padding:3px 10px}
 .f.none{font-family:'EB Garamond',Georgia,serif;font-size:16px;font-style:italic;color:#6B655A;background:transparent;border-style:dashed;box-shadow:none;padding:3px 10px}
-.f.sec{font-family:'EB Garamond',Georgia,serif;font-size:16px;color:#6B655A;padding:3px 10px}
-.f.sec .dots{font-family:'JetBrains Mono',monospace;color:#2B2F2A;margin-right:6px}
+.f.masked{font-family:'EB Garamond',Georgia,serif;font-size:16px;color:#6B655A;padding:3px 10px}
+.f.masked .dots{font-family:'JetBrains Mono',monospace;color:#2B2F2A;margin-right:6px}
 .f .muted{color:#6B655A}
 .f.plain{padding:2px 0;border:0;background:none;box-shadow:none;font-family:'EB Garamond',Georgia,serif;font-size:16.5px}
 .cbx{display:flex;align-items:center;gap:9px;font-size:16px}

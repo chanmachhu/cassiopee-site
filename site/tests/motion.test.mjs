@@ -6,6 +6,7 @@ const css = readdirSync('dist/_astro').filter((f) => f.endsWith('.css')).map((f)
 
 test('paused animations only once the page is armed', () => {
   assert.match(css, /\.armed \.sec:not\(\.in\)/);
+  assert.match(css, /\.armed \.sec:not\(\.in\),/); // the section itself, not only its descendants
   assert.doesNotMatch(css, /^\s*\.sec:not\(\.in\)/m);
 });
 test('reduced motion turns every animation off', () => {

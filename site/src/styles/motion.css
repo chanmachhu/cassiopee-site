@@ -53,7 +53,7 @@ details[open] > p { animation: rise .35s ease-out both; }
 .rv { animation: soft 1s cubic-bezier(.25, .6, .3, 1) var(--rd, .05s) both; }
 .rv.r2 { --rd: .12s; }
 .rv.r3 { --rd: .24s; }
-.armed .sec:not(.in) *, .armed .sec:not(.in) *::before, .armed .sec:not(.in) *::after { animation-play-state: paused !important; }
+.armed .sec:not(.in), .armed .sec:not(.in) *, .armed .sec:not(.in) *::before, .armed .sec:not(.in) *::after { animation-play-state: paused !important; }
 
 /* Guide page title: words blur in one after the other (--i is the word index). */
 @keyframes blurin { from { opacity: 0; filter: blur(10px); transform: translateY(20px); } }

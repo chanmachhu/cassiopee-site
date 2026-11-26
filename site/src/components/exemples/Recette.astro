@@ -18,8 +18,8 @@ const delai = (0.35 + (n - 1) * 0.15).toFixed(2);
       <div class:list={['fld', { half: c.demi }]}>
         <dt>{c.nom}</dt>
         <dd class:list={['f', { t: c.genre === 'texte', none: c.genre === 'aucun', plain: c.genre === 'seg' || c.genre === 'case' }]}>
-          {c.genre === 'seg' ? <span class="seg"><span>Personnel</span><span class="on">{c.v}</span></span>
-            : c.genre === 'case' ? <span class="cbx"><span class="box"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5,6.2 L5,8.6 L9.6,3.4" fill="none" stroke="#FBFAF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.v}</span>
+          {c.genre === 'seg' ? <span class="seg"><span aria-hidden="true">Personnel</span><span class="on">{c.v}</span></span>
+            : c.genre === 'case' ? <span class="cbx"><span class="box"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5,6.2 L5,8.6 L9.6,3.4" fill="none" stroke="#FBFAF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.v}</span>
             : <>{c.v}{c.fin && <> <span class="muted">{c.fin}</span></>}</>}
         </dd>
       </div>
@@ -34,7 +34,7 @@ const delai = (0.35 + (n - 1) * 0.15).toFixed(2);
             <span class="vn">{v.nom}</span>
             <span class:list={['kind', { 'k-val': v.genre === 'Valeur', 'k-sec': v.genre === 'Secret', 'k-base': v.genre === 'Base' }]}>{v.genre}</span>
             {v.genre === 'Secret'
-              ? <span class="f sec"><span class="dots">••••</span>saisi dans Cassiopée</span>
+              ? <span class="f masked"><span class="dots">••••</span>saisi dans Cassiopée</span>
               : <span class="f">{v.v}{v.fin && <> <span class="muted">/</span> {v.fin}</>}</span>}
           </li>
         ))}
