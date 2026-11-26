@@ -121,11 +121,6 @@ summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; bor
 .chev { display: inline-block; color: var(--gold); }
 details[open] summary .chev { transform: rotate(90deg); }
 
-/* Fin */
-.s-fin > .wrap { padding-top: 56px; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
-.s-fin h2 { font-size: 36px; letter-spacing: .04em; }
-.s-fin p { margin: 12px 0 0; font-size: 16px; color: var(--stone-500); }
-
 @media (max-width: 1179px) { .drape, .plaque-ivy { display: none; } }
 @media (max-width: 900px) { .hcol.outer { display: none; } }
 @media (max-width: 640px) {
