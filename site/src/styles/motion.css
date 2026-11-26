@@ -54,3 +54,7 @@ details[open] > p { animation: rise .35s ease-out both; }
 .rv.r2 { --rd: .12s; }
 .rv.r3 { --rd: .24s; }
 .armed .sec:not(.in) *, .armed .sec:not(.in) *::before, .armed .sec:not(.in) *::after { animation-play-state: paused !important; }
+
+/* Guide page title: words blur in one after the other (--i is the word index). */
+@keyframes blurin { from { opacity: 0; filter: blur(10px); transform: translateY(20px); } }
+.bw { display: inline-block; animation: blurin .9s cubic-bezier(.2, .7, .2, 1) calc(.3s + var(--i) * .1s) both; }

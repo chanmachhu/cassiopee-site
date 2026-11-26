@@ -1,3 +1,6 @@
+---
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
 <header>
   <nav aria-label="Navigation principale" class="wrap">
     <a href="/" class="brand">
@@ -5,7 +8,7 @@
       CASSIOPÉE
     </a>
     <div class="links">
-      <a href="/preparer-son-app" class="nl">Préparer son app</a>
+      <a href="/preparer-son-app" class="nl" aria-current={current === '/preparer-son-app' ? 'page' : undefined}>Préparer son app</a>
       <a href="/exemples" class="nl">Exemples</a>
       <a href="/#oracle" class="nl">L'oracle</a>
     </div>
@@ -19,7 +22,8 @@
   .links { display: flex; flex-wrap: wrap; gap: 6px 26px; flex: 1 1 auto; font-size: 17px; }
   .nl { position: relative; color: var(--stone-700); text-decoration: none; }
   .nl::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease-out; }
-  .nl:hover::after, .nl:focus-visible::after { transform: scaleX(1); }
+  .nl[aria-current] { color: var(--ivy-500); }
+  .nl:hover::after, .nl:focus-visible::after, .nl[aria-current]::after { transform: scaleX(1); }
   .cta { min-height: 44px; font-size: 16px; }
   @media (prefers-reduced-motion: reduce) { .nl::after { transition: none; } }
 </style>
