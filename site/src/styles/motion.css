@@ -38,10 +38,10 @@
 @keyframes unfurl2 { from { opacity: 0; transform: scale(0) rotate(-30deg); } to { opacity: 1; transform: none; } }
 @keyframes draw2 { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes fadein2 { from { opacity: 0; } }
-.tcard.rg .lf { animation: unfurl2 .35s cubic-bezier(.2, .9, .3, 1.25) calc(var(--d) * .18) both, rustle 2s ease-in-out calc(var(--d) * .18 + .4s) both; }
-.tcard.rg .st { animation: draw2 calc(var(--t) * .3) ease-out calc(var(--d) * .18) both; }
-.tcard.rg .fd { animation: fadein2 .3s ease-out calc(var(--d) * .18) both; }
-.tcard.rg .ivy-sh { animation: fadein2 .4s ease-out .8s both; }
+.rg .lf { animation: unfurl2 .35s cubic-bezier(.2, .9, .3, 1.25) calc(var(--d) * .18) both, rustle 2s ease-in-out calc(var(--d) * .18 + .4s) both; }
+.rg .st { animation: draw2 calc(var(--t) * .3) ease-out calc(var(--d) * .18) both; }
+.rg .fd { animation: fadein2 .3s ease-out calc(var(--d) * .18) both; }
+.rg .ivy-sh { animation: fadein2 .4s ease-out .8s both; }
 /* Steles and example cards: the palmette or the laurel sprig rustles around its foot. */
 .crown, .sprig { transform-origin: 50% 100%; }
 .lift:hover .crown, .lift:hover .sprig { animation: rustle 1.8s ease-in-out both; }

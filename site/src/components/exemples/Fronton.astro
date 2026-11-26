@@ -1,0 +1,6 @@
+---
+import Icone from './Icone.astro';
+import { drawings } from '../../drawings/generated';
+interface Props { slug: 'livre-dor' | 'stats' | 'bot' }
+---
+<svg class="ped" width="300" height="88" viewBox="0 -16 300 88" aria-hidden="true"><svg x="131" y="-16" width="38" height="29" viewBox="0 0 60 46" set:html={drawings.CROWN} /><polygon points="30,58 150,16 270,58" fill="url(#gTymp)" /><polygon points="0,58 150,4 300,58 270,58 150,16 30,58" fill="url(#gCorona)" /><polyline points="2,57.5 150,4.6 298,57.5" fill="none" stroke="#fff" stroke-width="1.1" /><polyline points="31,57 150,15.4 269,57" fill="none" stroke="#A8842F" stroke-width=".8" opacity=".7" /><rect x="0" y="58" width="300" height="7" fill="url(#gCorona)" /><path d="M0,58.5 H300" stroke="#fff" /><path d="M0,64.5 H300" stroke="#6F6657" stroke-opacity=".45" /><path d="M0,65.6 H300" stroke="#A8842F" stroke-width=".8" opacity=".7" /><g transform="translate(0 66.2)"><rect width="300" height="5.8" fill="#C9C1B3" /><rect width="300" height="3.8" fill="url(#pDentilS)" /></g><path d="M0,58 L150,4 L300,58 L300,72 L0,72Z" fill="#fff" filter="url(#fGrain)" opacity=".5" /><polyline points="0,58 150,4 300,58" fill="none" stroke="#8F8778" stroke-opacity=".6" /><g transform="translate(134 26) scale(.8)"><Icone slug={Astro.props.slug} /></g></svg>

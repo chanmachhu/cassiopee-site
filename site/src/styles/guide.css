@@ -1,26 +1,8 @@
-/* Guide page, from the mockup (docs/maquette/Guide.dc.html). Loaded by preparer-son-app.astro only; motion lives in motion.css. */
-.ivy{position:absolute;pointer-events:none;overflow:visible;z-index:5}
+/* Guide page, from the mockup (docs/maquette/Guide.dc.html). motion lives in motion.css. */
 .engraved{color:#6B655A;text-shadow:0 1px 0 rgba(255,255,255,.9),0 -1px 0 rgba(0,0,0,.1)}
-.eyebrow{margin:0;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#8A6C24}
-.ring{display:inline-flex;width:54px;height:54px;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid #A8842F;box-shadow:inset 0 0 0 3px #fff,inset 0 0 0 4px rgba(168,132,47,.4);color:#8A6C24;font-weight:700;font-size:24px;font-family:var(--font-heading)}
 summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
 code,pre,.kind{font-variant-ligatures:none}
 details[open] summary .chev{transform:rotate(90deg)}
-/* page head: cornice, inscribed frieze, architrave steps */
-.crumbs{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;margin:0 0 22px;padding:0;list-style:none;font-size:16px;color:#6B655A}
-.crumbs a{text-decoration:none}
-.crumbs li+li::before{content:"›";margin-right:10px;color:#A8842F}
-.ph{position:relative}
-.ph-cornice{display:block;width:100%;height:20px}
-.ph-band .ros{position:absolute;top:50%;margin-top:-9px}
-.ph-band{position:relative;isolation:isolate;margin:0 8px;padding:34px 84px 32px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;background:linear-gradient(#FBFAF7,#ECE8E0);border-left:1px solid #CFC8BB;border-right:1px solid #CFC8BB;box-shadow:inset 0 0 0 6px #F7F5F0,inset 0 0 0 7px rgba(168,132,47,.4)}
-.ph h1{margin:0;font-family:var(--font-heading);font-weight:700;font-size:46px;line-height:1.12;letter-spacing:.03em}
-.ph-lead{margin:0;max-width:36em;font-size:20px;color:#4A4F47}
-@media (max-width:640px){
-.ph-band{margin:0 4px;padding:26px 18px 24px}.ph-band .ros,.ivy-ph{display:none}
-.ph h1{font-size:32px}.ph-lead{font-size:18px}
-}
-.bw{display:inline-block;animation:blurin .9s cubic-bezier(.2,.7,.2,1) calc(.3s + var(--i) * .1s) both}
 .guide{display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px;align-items:start;padding-top:48px;padding-bottom:88px}
 .toc-d{position:sticky;top:24px;padding-top:34px}
 .toc-d .crown{position:absolute;z-index:2;top:0;left:50%;transform:translateX(-50%)}
@@ -66,10 +48,6 @@ details[open] summary .chev{transform:rotate(90deg)}
 .v-oui{color:#3F5E37;background:#E7EEDF;border:1px solid #B9CCA9}
 .v-adapt{color:#7A5E1C;background:#F6EFDC;border:1px solid #DCC68E}
 .v-non{color:#5E584E;background:#EEEBE5;border:1px solid #CFC8BB}
-.kind{display:inline-block;padding:1px 8px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.k-val{color:#4A4F47;background:#F1EEE8;border:1px solid #CFC8BB}
-.k-sec{color:#7A5E1C;background:#F6EFDC;border:1px solid #DCC68E}
-.k-base{color:#3F5E37;background:#E7EEDF;border:1px solid #B9CCA9}
 .tablet{position:relative;isolation:isolate;margin:18px 0 22px;padding:30px 32px 16px;background:linear-gradient(160deg,#FBFAF7,#EFEBE4);border:1px solid #C3BBAD;border-radius:4px;box-shadow:0 2px 0 #D9D2C6,0 14px 22px -16px rgba(60,55,45,.45),inset 0 0 0 7px #F7F5F0,inset 0 0 0 8px rgba(168,132,47,.45)}
 .tablet h3{margin:0 0 10px;text-align:center;font-family:var(--font-heading);font-weight:600;font-size:15px;letter-spacing:.3em}
 .tablet ol{list-style:none;margin:0;padding:0}

@@ -9,7 +9,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
     </a>
     <div class="links">
       <a href="/preparer-son-app" class="nl" aria-current={current === '/preparer-son-app' ? 'page' : undefined}>Préparer son app</a>
-      <a href="/exemples" class="nl">Exemples</a>
+      <a href="/exemples" class="nl" aria-current={current === '/exemples' ? 'page' : undefined}>Exemples</a>
       <a href="/#oracle" class="nl">L'oracle</a>
     </div>
     <a href="https://intranet.sigl.epita.fr" class="btn-stone cta">Ouvrir l'intranet</a>
