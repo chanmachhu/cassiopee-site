@@ -1,5 +1,5 @@
 // Turns the guide's flat Markdown into the mockup's structure: one <section> per `##`, numbered rings,
-// warning box, checklist tablet, verdict pills, kind badges and compose arrows.
+// warning boxes (3, by prefix), checklist tablet, verdict pills, kind badges and compose arrows.
 // Uses Satteri (Astro's Markdown engine) directly: Astro 7 only accepts rehype plugins with an extra package.
 import { hastToHtml, markdownToHast } from 'satteri';
 import { sectionMeta } from './guide';
@@ -41,15 +41,26 @@ function tablet(table: N) {
   return h('div', { className: ['tablet'] }, TEX(), h('h3', { className: ['engraved'] }, t('LES DIX RÈGLES')), h('ol', {}, ...items));
 }
 
-// "**Title.** body" as a paragraph: the first strong ends with a full stop.
+// Paragraphs shown as a warning boxes (3, by prefix), by text prefix. `lead`: the bold lead sentence is the title and leaves the body.
+const WARN: { prefix: string; title?: string; lead?: boolean }[] = [
+  { prefix: 'Toutes les apps sont supprimées', lead: true },
+  { prefix: "Si l'image déclare un", title: 'Données perdues' },
+  { prefix: 'Le stockage S3 est indisponible', title: "Indisponible pour l'instant" },
+];
+
 function warn(p: N) {
-  const [first, ...rest] = p.children;
-  if (first?.tagName !== 'strong' || !text(first).endsWith('.')) return p;
-  const title = text(first).slice(0, -1);
-  rest[0] = { ...rest[0], value: rest[0].value?.replace(/^\s+/, '') };
+  const rule = WARN.find((w) => text(p).startsWith(w.prefix));
+  if (!rule) return p;
+  let body = p.children;
+  let title = rule.title ?? '';
+  if (rule.lead && body[0]?.tagName === 'strong') {
+    title = text(body[0]).replace(/\.$/, '');
+    body = body.slice(1);
+    if (body[0]?.type === 'text') body = [{ ...body[0], value: body[0].value.replace(/^\s+/, '') }, ...body.slice(1)];
+  }
   return h('div', { className: ['warn'], role: 'note' },
     h('p', { className: ['warn-t'] }, h('svg', { width: 16, height: 16, viewBox: '-6 -6 12 12', 'aria-hidden': 'true' }, h('use', { href: '#rosette' })), t(title)),
-    h('p', {}, ...rest));
+    h('p', {}, ...body));
 }
 
 function block(node: N, id: string) {

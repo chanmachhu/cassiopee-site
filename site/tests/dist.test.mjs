@@ -39,6 +39,7 @@ test('guide page: title and one TOC link per ## section', () => {
   assert.ok(html.includes(title), 'guide title');
   const ids = [...html.matchAll(/<section id="([^"]+)"/g)].map((m) => m[1]);
   assert.equal(ids.length, n);
+  assert.equal((html.match(/class="warn"/g) ?? []).length, 3);
   const toc = html.match(/<nav class="toc toc-st"[\s\S]*?<\/nav>/)[0];
   assert.deepEqual([...toc.matchAll(/href="#([^"]+)"/g)].map((m) => m[1]), ids);
   assert.match(html, /<a href="\/preparer-son-app" class="nl" aria-current="page"/);
