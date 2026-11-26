@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Fin from '../components/home/Fin.astro';
+import PageHead from '../components/PageHead.astro';
+import Fronton from '../components/exemples/Fronton.astro';
+import Icone from '../components/exemples/Icone.astro';
+import Recette from '../components/exemples/Recette.astro';
+import { exemples } from '../data/exemples';
+import '../styles/page.css';
+import '../styles/exemples.css';
+import '../styles/motion.css';
+
+// `code` spans in the pitches are written with backticks.
+const pitch = (s: string) => s.split('`');
+---
+<Base title="Exemples" description="Trois exemples qui tournent sur Cassiopée : ouvre-les, lis le code, recopie la recette." defs>
+  <section data-reveal="tete" class="wrap sec" style="padding-top: 24px;">
+    <PageHead crumb="Exemples" eyebrow="Exemples" title="Trois exemples, en ligne" lead="Chacun tourne sur Cassiopée : ouvre-le, lis le code, recopie la recette." />
+    <nav aria-label="Les trois exemples" class="fx" style="--d: 1.1s;">
+      <ul class="anchors">
+        {exemples.map((e) => (
+          <li><a class="anc" href={`#${e.slug}`}><svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><Icone slug={e.slug} /></svg><span><b>{e.titre}</b><small>{e.tags}</small></span></a></li>
+        ))}
+      </ul>
+    </nav>
+  </section>
+  {exemples.map((e, i) => (
+    <>
+      {i > 0 && <div class="divider" aria-hidden="true"><span></span><svg width="16" height="16" viewBox="-6 -6 12 12" aria-hidden="true"><use href="#rosette" /></svg><span></span></div>}
+      <section id={e.slug} data-reveal={`e${i + 1}`} class="wrap ex sec" aria-labelledby={`t-${e.slug}`}>
+        <div class="ex-head">
+          <div class="fx"><Fronton slug={e.slug} /></div>
+          <p class="label fx" style="--d: .15s;">Exemple {i + 1} · {e.tags}</p>
+          <h2 id={`t-${e.slug}`} class="fx" style="--d: .25s;">{e.titre}</h2>
+          <p class="pitch fx" style="--d: .35s;">{pitch(e.pitch).map((p, k) => (k % 2 ? <code>{p}</code> : p))}</p>
+          <ul class="chips fx" style="--d: .45s;" aria-label="Ce qu'il montre">{e.puces.map((p) => <li>{p}</li>)}</ul>
+          <div class="acts fx" style="--d: .55s;">
+            {e.enLigne && <a href={e.enLigne} class="btn-ivy">Voir en ligne</a>}
+            {!e.enLigne && e.slug === 'bot' && <span class="soon"><svg width="10" height="10" aria-hidden="true"><circle cx="5" cy="5" r="4" fill="none" stroke="#A8842F" stroke-width="1.5" /></svg>Bientôt en ligne</span>}
+            <a href={e.code} class="btn-stone" target="_blank" rel="noopener">Voir le code <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M1,5 H19 M15,1.5 L20,5 L15,8.5" fill="none" stroke="#3F5E37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+          </div>
+        </div>
+        <figure class="panel rv" style="--rd: .5s;">
+          <svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".35" /></svg>
+          <figcaption class="eyebrow">Architecture</figcaption>
+          <div class:list={['arch', { short: e.archi.zone.length < 3 }]}>
+            {e.archi.ext && <>
+              <div class="node ext"><span class="nk">{e.archi.ext.nk}</span><span class="nn">{e.archi.ext.nn}</span><span class="ns">{e.archi.ext.ns}</span></div>
+              <div class:list={['edge fix', { both: e.archi.ext.double }]}><span class="el">{e.archi.ext.via}</span><span class="ln"></span></div>
+            </>}
+            <div class="zone">
+              <span class="zc">Espace d'équipe</span>
+              {e.archi.zone.map((nd) => <>
+                {nd.via && <div class="edge"><span class="el">{nd.via}</span><span class="ln"></span></div>}
+                <div class="node"><span class="nk">{nd.nk}</span><span class="nn">{nd.nn}</span><span class="ns">{nd.ns}</span></div>
+              </>)}
+            </div>
+          </div>
+        </figure>
+        <div class="recipe">
+          <div class="rec-h fx" style="--d: .6s;"><svg width="84" height="22" viewBox="-42 -20 84 22" aria-hidden="true"><use href="#sprig" transform="scale(-1 1)" /><use href="#sprig" /></svg><h3>La recette</h3><p>{e.intro}</p></div>
+          <div class="cards">{e.recette.map((r, k) => <Recette r={r} n={k + 1} />)}</div>
+        </div>
+      </section>
+    </>
+  ))}
+  <Fin slot="footer" />
+  <script src="../scripts/reveal.ts"></script>
+  <script src="../scripts/regrow.ts"></script>
+</Base>

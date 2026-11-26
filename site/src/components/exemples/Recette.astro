@@ -1,0 +1,44 @@
+---
+import type { Ressource } from '../../data/exemples';
+import { ivyCartes } from './ivy';
+interface Props { r: Ressource; n: number }
+const { r, n } = Astro.props;
+// Cards in a row enter one after the other.
+const delai = (0.35 + (n - 1) * 0.15).toFixed(2);
+---
+<article class="rc rv" style={`--rd: ${delai}s;`}>
+  <svg class="ivy" style="right: -14px; top: -12px;" width="160" height="70" viewBox="0 0 160 70" aria-hidden="true" set:html={ivyCartes[r.nom]} />
+  <header class="rc-h">
+    <span class="ring">{n}</span>
+    <div><span class="rc-k">{r.type}</span><h4>{r.nom}</h4></div>
+    <a class="rc-code" href={r.code} target="_blank" rel="noopener" aria-label={`Code de ${r.nom}`}>Code <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M1,5 H19 M15,1.5 L20,5 L15,8.5" fill="none" stroke="#3F5E37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+  </header>
+  <dl class="fields">
+    {r.champs.map((c) => (
+      <div class:list={['fld', { half: c.demi }]}>
+        <dt>{c.nom}</dt>
+        <dd class:list={['f', { t: c.genre === 'texte', none: c.genre === 'aucun', plain: c.genre === 'seg' || c.genre === 'case' }]}>
+          {c.genre === 'seg' ? <span class="seg"><span aria-hidden="true">Personnel</span><span class="on">{c.v}</span></span>
+            : c.genre === 'case' ? <span class="cbx"><span class="box"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5,6.2 L5,8.6 L9.6,3.4" fill="none" stroke="#FBFAF6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.v}</span>
+            : <>{c.v}{c.fin && <> <span class="muted">{c.fin}</span></>}</>}
+        </dd>
+      </div>
+    ))}
+  </dl>
+  {r.vars && (
+    <div class="vars">
+      <p class="fl" style="margin: 0;">Variables d'environnement</p>
+      <ul>
+        {r.vars.map((v) => (
+          <li>
+            <span class="vn">{v.nom}</span>
+            <span class:list={['kind', { 'k-val': v.genre === 'Valeur', 'k-sec': v.genre === 'Secret', 'k-base': v.genre === 'Base' }]}>{v.genre}</span>
+            {v.genre === 'Secret'
+              ? <span class="f masked"><span class="dots">••••</span>saisi dans Cassiopée</span>
+              : <span class="f">{v.v}{v.fin && <> <span class="muted">/</span> {v.fin}</>}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</article>

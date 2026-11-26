@@ -1,0 +1,19 @@
+---
+import { drawings } from '../../drawings/generated';
+const chiffres = [
+  ['3', 'clics', 'pour mettre ton app en ligne'],
+  ['2', 'clics', 'pour une base PostgreSQL'],
+  ['0', 'ligne', 'de YAML ou de Kubernetes'],
+  ['1', 'adresse HTTPS', 'par app, certificat compris'],
+];
+---
+<section data-reveal="plaque" class="wrap sec s-plaque">
+  <div class="iso">
+    <svg class="ivy-back plaque-ivy" width="240" height="260" viewBox="0 0 240 260" aria-hidden="true" set:html={drawings.PLAQUE_BACK} />
+    <div class="plaque z1 iso rv">
+      <svg class="tex" aria-hidden="true"><rect width="100%" height="100%" fill="#fff" filter="url(#fVeinsBig)" opacity=".6" /><rect width="100%" height="100%" fill="#fff" filter="url(#fGrain)" opacity=".45" /></svg>
+      {chiffres.map(([n, mot, suite]) => <div><p class="num engraved">{n}</p><p><b>{mot}</b> {suite}</p></div>)}
+    </div>
+    <svg class="ivy-front plaque-ivy" width="240" height="260" viewBox="0 0 240 260" aria-hidden="true" set:html={drawings.PLAQUE_FRONT} />
+  </div>
+</section>

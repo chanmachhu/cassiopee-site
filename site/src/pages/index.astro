@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/home/Hero.astro';
+import Plaque from '../components/home/Plaque.astro';
+import Piliers from '../components/home/Piliers.astro';
+import Rituel from '../components/home/Rituel.astro';
+import ExemplesApercu from '../components/home/ExemplesApercu.astro';
+import Oracle from '../components/home/Oracle.astro';
+import Fin from '../components/home/Fin.astro';
+import '../styles/home.css';
+import '../styles/motion.css';
+---
+<Base title="Cassiopée" description="Plateforme de déploiement du SIGL." defs>
+  <Hero />
+  <Plaque />
+  <Piliers />
+  <Rituel />
+  <ExemplesApercu />
+  <Oracle />
+  <Fin slot="footer" />
+  <script src="../scripts/reveal.ts"></script>
+</Base>

@@ -1,0 +1,16 @@
+/* Fonts fall back to system serifs: the CSP forbids third-party requests. */
+:root { --ivy: #3F5E37; --gold: #A8842F; }
+body { margin: 0; background: #f4f1ea linear-gradient(135deg, #fbfaf6, #ebe6da); color: #2a2a26; font: 1.15rem/1.5 'EB Garamond', Georgia, serif; }
+main { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; }
+h1, h2 { font-family: 'Cinzel', Georgia, serif; font-weight: 600; color: var(--ivy); }
+h2 { border-bottom: 1px solid var(--gold); padding-bottom: .25rem; }
+form { display: grid; gap: .5rem; }
+input, textarea { font: inherit; padding: .4rem; border: 1px solid var(--gold); background: #fff; }
+label span { color: var(--gold); font-size: .9rem; }
+button { justify-self: start; font: inherit; padding: .4rem 1.2rem; border: 0; background: var(--ivy); color: #fff; cursor: pointer; }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+#erreur { color: #8a2a1f; margin: 0; }
+ul { list-style: none; padding: 0; }
+#messages li { border-left: 3px solid var(--gold); padding-left: .8rem; margin-bottom: 1rem; }
+#messages p { margin: .2rem 0 0; overflow-wrap: anywhere; }
+.date { margin-left: .6rem; color: #6b6b60; font-size: .9rem; }

@@ -1,0 +1,10 @@
+.claude/
+.superpowers/
+node_modules/
+site/dist/
+site/.astro/
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+.env

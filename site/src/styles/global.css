@@ -1,0 +1,25 @@
+@import '@fontsource/cinzel/500.css';
+@import '@fontsource/cinzel/600.css';
+@import '@fontsource/cinzel/700.css';
+@import '@fontsource/eb-garamond/400.css';
+@import '@fontsource/eb-garamond/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import './tokens.css';
+
+body { margin: 0; background: var(--marble); color: var(--ink); font-family: var(--font-body); font-size: 19px; line-height: 1.6; overflow-x: clip; position: relative; isolation: isolate; }
+a { color: var(--ivy-500); }
+a:hover { color: var(--ivy-700); }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+code { font-family: var(--font-mono); font-size: 15px; background: var(--stone-100); padding: 1px 5px; border-radius: 3px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); box-sizing: border-box; }
+/* Marble texture behind its positioned parent; its filters come from the shared SVG defs. */
+.tex { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.btn-ivy, .btn-stone { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; border-radius: 4px; text-decoration: none; }
+.btn-ivy { gap: 10px; background: var(--ivy-500); color: var(--marble-light) !important; font-weight: 600; box-shadow: inset 0 0 0 1px rgba(214, 184, 110, .9), inset 0 0 0 4px var(--ivy-500), inset 0 0 0 5px rgba(214, 184, 110, .45); }
+.btn-ivy:hover { background: #34502d; }
+.btn-stone { background: var(--marble-light); color: var(--ink) !important; border: 1px solid var(--stone-300); box-shadow: 0 2px 0 #d3ccc0; padding: 0 24px; }
+.btn-stone:hover { background: #fff; }
+.btn-ivy, .btn-stone { transition: translate .2s ease-out, background-color .2s ease-out; }
+.btn-ivy:hover, .btn-stone:hover { translate: 0 -1px; }
+@media (max-width: 600px) { :root { --gutter: 16px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

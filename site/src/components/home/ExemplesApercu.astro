@@ -1,0 +1,16 @@
+---
+import ExempleCard from './ExempleCard.astro';
+import { exemples } from '../../data/exemples';
+---
+<section data-reveal="exemples" class="wrap sec s-exemples">
+  <div class="ex-head">
+    <div class="rv">
+      <h2>Trois exemples, en ligne</h2>
+      <p>Chacun tourne sur Cassiopée. Ouvre-le, lis le code, et recopie les valeurs du formulaire.</p>
+    </div>
+    <a href="/exemples">Tous les exemples</a>
+  </div>
+  <div class="ex-row">
+    {exemples.map((e, i) => <ExempleCard exemple={e} n={i + 1} />)}
+  </div>
+</section>

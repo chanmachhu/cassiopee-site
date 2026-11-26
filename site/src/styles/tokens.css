@@ -1,0 +1,20 @@
+:root {
+  --marble: #f5f3ee;
+  --marble-light: #fbfaf7;
+  --stone-100: #f1eee8;
+  --stone-200: #ddd7cc;
+  --stone-300: #bdb5a7;
+  --stone-500: #6b655a;
+  --stone-700: #4a4f47;
+  --ivy-500: #3f5e37;
+  --ivy-700: #2b4426;
+  --gold: #a8842f;
+  --gold-dark: #866922;
+  --gold-light: #d6b86e;
+  --ink: #2b2f2a;
+  --font-heading: 'Cinzel', Georgia, serif;
+  --font-body: 'EB Garamond', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --wrap: 1180px;
+  --gutter: 32px;
+}

@@ -1,0 +1,29 @@
+---
+const current = Astro.url.pathname.replace(/\/$/, '');
+---
+<header>
+  <nav aria-label="Navigation principale" class="wrap">
+    <a href="/" class="brand">
+      <svg width="36" height="22" viewBox="0 0 36 22" aria-hidden="true"><polyline points="2,4 10,17 18,9 26,18 34,3" fill="none" stroke="#a8842f" stroke-width="1.1" /><g fill="#d6b86e" stroke="#a8842f" stroke-width=".6"><circle cx="2" cy="4" r="2" /><circle cx="10" cy="17" r="2.2" /><circle cx="18" cy="9" r="2.6" /><circle cx="26" cy="18" r="2" /><circle cx="34" cy="3" r="2.2" /></g></svg>
+      CASSIOPÉE
+    </a>
+    <div class="links">
+      <a href="/preparer-son-app" class="nl" aria-current={current === '/preparer-son-app' ? 'page' : undefined}>Préparer son app</a>
+      <a href="/exemples" class="nl" aria-current={current === '/exemples' ? 'page' : undefined}>Exemples</a>
+      <a href="/#oracle" class="nl">L'oracle</a>
+    </div>
+    <a href="https://intranet.sigl.epita.fr" class="btn-stone cta">Ouvrir l'intranet</a>
+  </nav>
+</header>
+<style>
+  header { border-bottom: 1px solid var(--stone-200); }
+  nav { padding-top: 16px; padding-bottom: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; font-family: var(--font-heading); font-weight: 700; font-size: 22px; letter-spacing: .08em; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 26px; flex: 1 1 auto; font-size: 17px; }
+  .nl { position: relative; color: var(--stone-700); text-decoration: none; }
+  .nl::after { content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease-out; }
+  .nl[aria-current] { color: var(--ivy-500); }
+  .nl:hover::after, .nl:focus-visible::after, .nl[aria-current]::after { transform: scaleX(1); }
+  .cta { min-height: 44px; font-size: 16px; }
+  @media (prefers-reduced-motion: reduce) { .nl::after { transition: none; } }
+</style>
